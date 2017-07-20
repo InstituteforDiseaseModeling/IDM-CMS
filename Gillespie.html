@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Compartmental Modeling Software (CMS) &mdash; Compartmental Modeling (CMS)  documentation</title>
+  <title>Gillespie &mdash; Compartmental Modeling (CMS)  documentation</title>
   
 
   
@@ -43,8 +43,10 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="#"/>
-        <link rel="next" title="CMS installation" href="cms-installation.html"/>
+    <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
+        <link rel="up" title="Solvers" href="solvers.html"/>
+        <link rel="next" title="GillespieFirstReaction" href="GillespieFirstReaction.html"/>
+        <link rel="prev" title="Solvers" href="solvers.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -67,7 +69,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Compartmental Modeling (CMS)
+            <a href="index.html" class="icon icon-home"> Compartmental Modeling (CMS)
           
 
           
@@ -98,9 +100,20 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-software.html">Introduction to the software</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Gillespie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
@@ -118,7 +131,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Compartmental Modeling (CMS)</a>
+          <a href="index.html">Compartmental Modeling (CMS)</a>
         
       </nav>
 
@@ -146,9 +159,13 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Compartmental Modeling Software (CMS)</li>
+          <li><a href="introduction-software.html">Introduction to the software</a> &raquo;</li>
+        
+          <li><a href="solvers.html">Solvers</a> &raquo;</li>
+        
+      <li>Gillespie</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -167,50 +184,9 @@
             
 <!-- From _templates/page.html -->
 
-  <div class="section" id="compartmental-modeling-software-cms">
-<h1>Compartmental Modeling Software (CMS)<a class="headerlink" href="#compartmental-modeling-software-cms" title="Permalink to this headline">¶</a></h1>
-<p>Introduction text TBD.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="solvers.html">Solvers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="create-configuration-file.html">Create a configuration file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create-network-model.html">Create a network model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="custom-propensity-function.html">Custom propensity function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="run-simulations.html">Run simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output-analysis-matlab.html">Output analyses using Matlab</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-</ul>
-</div>
+  <div class="section" id="gillespie">
+<h1>Gillespie<a class="headerlink" href="#gillespie" title="Permalink to this headline">¶</a></h1>
+<p>Gillespie</p>
 </div>
 
 
@@ -225,8 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cms-installation.html" class="btn btn-neutral float-right" title="CMS installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="GillespieFirstReaction.html" class="btn btn-neutral float-right" title="GillespieFirstReaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="solvers.html" class="btn btn-neutral" title="Solvers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   
+  
+  
 
   
 
@@ -43,7 +45,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
         <link rel="up" title="Introduction to the software" href="introduction-software.html"/>
-        <link rel="next" title="Output files" href="output-files.html"/>
+        <link rel="next" title="Gillespie" href="Gillespie.html"/>
         <link rel="prev" title="Random number library" href="random-number-library.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
@@ -57,6 +59,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -94,13 +97,34 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Solvers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solvers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
@@ -119,8 +143,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">Compartmental Modeling (CMS)</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Compartmental Modeling (CMS)</a>
+        
       </nav>
 
 
@@ -129,23 +155,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
           <li><a href="introduction-software.html">Introduction to the software</a> &raquo;</li>
-      
-    <li>Solvers</li>
+        
+      <li>Solvers</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -155,22 +198,44 @@
 
   <div class="section" id="solvers">
 <h1>Solvers<a class="headerlink" href="#solvers" title="Permalink to this headline">¶</a></h1>
-<p>Solvers text TBD.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DFSP.html">DFSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+</ul>
+</div>
 </div>
 
 
 <div id="tipue_search_content"></div>
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="output-files.html" class="btn btn-neutral float-right" title="Output files" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Gillespie.html" class="btn btn-neutral float-right" title="Gillespie" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="random-number-library.html" class="btn btn-neutral" title="Random number library" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="random-number-library.html" class="btn btn-neutral" title="Random number library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -206,7 +271,8 @@
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
