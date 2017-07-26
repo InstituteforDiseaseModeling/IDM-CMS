@@ -1,0 +1,22 @@
+
+{
+    "duration": 70,
+    "runs": 100000,
+    "solver": "sdwSSA",
+    "sdwSSA": {
+        "reExpressionName": "reExpression",
+        "reValName": "reVal",
+        "gamma": [1.53, 0.45],
+        "crossEntropyThreshold"  : 0.01,
+  
+        "crossEntropyMinDataSize": 300
+        
+        
+        "crossEntropyRuns": 100000,        
+        "crossEntropyThreshold": 0.01,
+        "crossEntropyMinDataSize": 200
+
+        
+        "gammaSize":
+    }
+} 

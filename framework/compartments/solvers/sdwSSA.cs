@@ -544,13 +544,13 @@ namespace compartments.solvers
                 throw new ApplicationException("crossEntropyThreshold must be between 0 and 1 (default is 0.01).");
 
             if (_crossEntropyMinDataSize < 100)
-                throw new ApplicationException("crossEntropyMinDataSize must be greater than 100.");
+                throw new ApplicationException("crossEntropyMinDataSize must be an integer >= 100.");
 
             if (_gammaSize < 1)
-                throw new ApplicationException("gammaSize must be a positive integer.");
+                throw new ApplicationException("gammaSize must be a positive integer greater than 1. Use dwSSA for gammaSize = 1.");
 
-            if (_binCountThreshold < 2)
-                throw new ApplicationException("binCount must be a positive integer greater than 1 to use sdwSSA. Use dwSSA for binCountThreshold = 1.");
+            if (_binCountThreshold < 10)
+                throw new ApplicationException("binCount must be an integer >= 10.");
 
             if (_reExpression == null)
                 throw new ApplicationException("rare event expression field is missing.");
