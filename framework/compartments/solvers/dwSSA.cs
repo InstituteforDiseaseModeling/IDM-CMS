@@ -161,7 +161,7 @@ namespace compartments.solvers
         private double _runningMean;
         private double _runningVariance;
 
-        // temporary file for writing CE information until BiasingParameters for dwSSA is incorporated
+        // file for writing dwSSA results
         private readonly string _outputFileName;
 
         public dwSSA(ModelInfo modelInfo, float duration, int repeats, int samples)

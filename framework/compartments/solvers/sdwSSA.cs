@@ -430,6 +430,9 @@ namespace compartments.solvers
         private readonly string _biasingParametersFileName; // ReSharper wants to make this local, but we'll leave it at this scope so it can be debugged.
         private readonly Boolean _biasingParametersFlag;
 
+        // file for writing sdwSSA results
+        private readonly string _outputFileName;
+
         public sdwSSA(ModelInfo modelinfo, float duration, int repeats, int samples)
             : base(modelinfo, duration, repeats, samples)
         {
@@ -460,6 +463,8 @@ namespace compartments.solvers
             _biasingParametersFileName = config.GetParameterWithDefault("sdwSSA.biasingParametersFileName", modelinfo.Name + "_biasingParameters.json");
             _biasingParametersFlag = (String.CompareOrdinal(_biasingParametersFileName, modelinfo.Name + "_biasingParameters.json") == 0);
             _biasingParameters = _biasingParametersFlag ? new BiasingParameters() : BiasingParametersDeserializer.ReadParametersFromJsonFile(_biasingParametersFileName);
+
+            _outputFileName = config.GetParameterWithDefault("sdwSSA.outputFileName", modelInfo.Name + "_sdwSSA_1e" + Math.Log(SamplingParams.RealizationCount, 10) + ".txt");
         }
 
         public void Initialize()
@@ -544,13 +549,13 @@ namespace compartments.solvers
                 throw new ApplicationException("crossEntropyThreshold must be between 0 and 1 (default is 0.01).");
 
             if (_crossEntropyMinDataSize < 100)
-                throw new ApplicationException("crossEntropyMinDataSize must be greater than 100.");
+                throw new ApplicationException("crossEntropyMinDataSize must be an integer >= 100.");
 
             if (_gammaSize < 1)
-                throw new ApplicationException("gammaSize must be a positive integer.");
+                throw new ApplicationException("gammaSize must be a positive integer greater than 1. Use dwSSA for gammaSize = 1.");
 
-            if (_binCountThreshold < 2)
-                throw new ApplicationException("binCount must be a positive integer greater than 1 to use sdwSSA. Use dwSSA for binCountThreshold = 1.");
+            if (_binCountThreshold < 10)
+                throw new ApplicationException("binCount must be an integer >= 10.");
 
             if (_reExpression == null)
                 throw new ApplicationException("rare event expression field is missing.");
@@ -878,9 +883,8 @@ namespace compartments.solvers
         {
             double reUnc = Math.Sqrt(_runningVariance / _trajectoryCounter) / Math.Sqrt(_trajectoryCounter);
             double reVar = _runningVariance / _trajectoryCounter;
-
-            string filename = modelInfo.Name + "_sdwSSA.txt";
-            using (var output = new StreamWriter(filename))
+            
+            using (var output = new StreamWriter(_outputFileName))
             {
                 output.Write("FrameworkVersion,\"");
                 output.Write(VersionInfo.Version);
