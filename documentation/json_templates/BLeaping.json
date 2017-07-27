@@ -1,0 +1,14 @@
+{
+    "duration": 5,
+    "runs": 5000,
+    "solver": "B",
+    "samples": 50,
+    "prng_seed": 123,
+    "RNG": { 
+        "type" : "PSEUDODES"
+    },
+
+    "b-leaping": {
+        "Tau"  : 0.01
+    }
+} 
