@@ -45,7 +45,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
         <link rel="up" title="Solvers" href="solvers.html"/>
-        <link rel="next" title="Output files" href="output-files.html"/>
+        <link rel="next" title="GibsonBruck" href="GibsonBruck.html"/>
         <link rel="prev" title="Gillespie" href="Gillespie.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
@@ -109,6 +109,20 @@
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">GillespieFirstReaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
@@ -186,7 +200,36 @@
 
   <div class="section" id="gillespiefirstreaction">
 <h1>GillespieFirstReaction<a class="headerlink" href="#gillespiefirstreaction" title="Permalink to this headline">¶</a></h1>
-<p>Gillespie First Reaction</p>
+<p>Gillespie First Reaction solver implements the First Reaction Method (FRM) version of the Gillespie algorithm <a class="footnote-reference" href="#id2" id="id1">[1]</a>. The other version, the Direct Method (DM), is implemented in <a class="reference internal" href="Gillespie.html"><span class="doc">Gillespie</span></a>. While the two methods are theoretically equivalent, they differ in implementation. FRM generates a potential reaction time for every reaction and chooses the reaction corresponding to the earliest reaction time, thus <em>first reaction</em>. In DM implementation, the next reaction time is generated first. Then a reaction is chosen after considering the likelihood of each reaction firing at the computed time.</p>
+<p><strong>.json file template</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nt">&quot;runs&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prng_seed&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nt">&quot;samples&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;FirstReaction&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;writecsv&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;compress&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;writeMatFile&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;writeSampleTimes&quot;</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>.json syntax for GillespieFirstReaction</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">First</span></code>, <code class="code docutils literal"><span class="pre">FirstReaction</span></code>, and <code class="code docutils literal"><span class="pre">GillespieFirstReaction</span></code> are all valid names to run this solver.</dd>
+</dl>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/j100540a008?journalCode=jpchax">Gillespie, Daniel T. “Exact stochastic simulation of coupled chemical reactions.” The Journal of Physical Chemistry 81.25 (1977): 2340-361.</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -201,7 +244,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="output-files.html" class="btn btn-neutral float-right" title="Output files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="GibsonBruck.html" class="btn btn-neutral float-right" title="GibsonBruck" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Gillespie.html" class="btn btn-neutral" title="Gillespie" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
