@@ -200,7 +200,70 @@
 
   <div class="section" id="sdwssa">
 <h1>sdwSSA<a class="headerlink" href="#sdwssa" title="Permalink to this headline">¶</a></h1>
-<p>state-dependent doubly weighted Stochastic Simulation Algorithm</p>
+<p>Similar to the <a class="reference internal" href="dwSSA.html"><span class="doc">dwSSA</span></a> solver, the state-dependent doubly weighted Stochastic Simulation Algorithm (sdwSSA) <a class="footnote-reference" href="#id3" id="id1">[1]</a> is developed exclusively for estimating rare event probabilities and should not be used for recording time-course trajectories.</p>
+<p>sdwSSA employees state-dependent importance sampling using a set of parameters for each reaction in the model. If they biasing parameters are not provided in the .json configuration file, sdwSSA will execute multilvel cross-entropy (CE) method prior to the sdwSSA simulation to obtain optimal (minimum CE) biasing parameters. The overall flow of the algorithm is the same as the <a class="reference internal" href="#"><span class="doc">sdwSSA</span></a> solver. After sdwSSA simulations finish, an estimate of the rare event with a confidence interval are returned as output <a class="footnote-reference" href="#id4" id="id2">[2]</a>.</p>
+<p><strong>.json file template</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="nt">&quot;runs&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span><span class="p">:</span> <span class="s2">&quot;sdwSSA&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sdwSSA&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;reExpressionName&quot;</span><span class="p">:</span> <span class="s2">&quot;reExpression&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;reValName&quot;</span><span class="p">:</span> <span class="s2">&quot;SIR-RE-val&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;crossEntropyThreshold&quot;</span>  <span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="nt">&quot;crossEntropyMinDataSize&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>        
+        <span class="nt">&quot;crossEntropyRuns&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span>    
+        <span class="nt">&quot;gammaSize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="nt">&quot;binCount&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nt">&quot;biasingParametersFileNate&quot;</span><span class="p">:</span> <span class="s2">&quot;SIRS_biasingParameters_custom.json&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;outputFileNate&quot;</span><span class="p">:</span> <span class="s2">&quot;SIR_sdwSSA_1e5.txt&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p><strong>.json syntax for sdwSSA</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">sdwSSA</span></code> is the only valid names to run this solver.</dd>
+<dt><code class="docutils literal"><span class="pre">reExpressionName</span></code></dt>
+<dd>takes a string as an input, which is the name of the function that defines the rare event expression in .emodl model file.  If <code class="code docutils literal"><span class="pre">reExpressionName</span></code> field is missing in the .json file, then the sdwSSA solver will search .emodl file for <code class="code docutils literal"><span class="pre">reExpression</span></code> as the default name of the function.</dd>
+<dt><code class="docutils literal"><span class="pre">reValName</span></code></dt>
+<dd>takes a string as an input, which is the name of the parameter that defines the rare event value in .emodl model file. If <code class="code docutils literal"><span class="pre">reValName</span></code> field is missing in the .json file, then the sdwSSA solver will search .emodl file for <code class="code docutils literal"><span class="pre">reVal</span></code> as the default name of the parameter.</dd>
+<dt><code class="docutils literal"><span class="pre">gammaSize</span></code></dt>
+<dd>takes a positive integer as an input and defines the initial length of importance sampling parameters <em>per reaction</em>.</dd>
+<dt><code class="docutils literal"><span class="pre">binCount</span></code></dt>
+<dd>takes a positive integer greater or equal to 10 as an input. It specifies the minimum number of data required to maintain a single bin (bins are merged otherwise until each bin contains at least <code class="code docutils literal"><span class="pre">binCount</span></code> data). <code class="code docutils literal"><span class="pre">binCount</span></code> is used only in multilevel cross entropy (CE) simulations and is not required for sdwSSA simulations. If <code class="code docutils literal"><span class="pre">binCount</span></code> is missing in the .json file but required to run multilevel CE simulations, default value of 20 is used.</dd>
+<dt><code class="docutils literal"><span class="pre">biasingParametersFileName</span></code></dt>
+<dd>takes a string as an input. It is the name of the .json file containing importance sampling (IS) parameters, which are used in the sdwSSA simulations. If <code class="code docutils literal"><span class="pre">biasingParametersFileName</span></code> is missing, default name is created in the form of <em>modelName</em>_biasingParameters.json and multilevel CE simulations are performed to compute optimal IS parameters prior to running sdwSSA simulations.</dd>
+<dt><code class="docutils literal"><span class="pre">crossEntropyRuns</span></code></dt>
+<dd>takes an integer greater or equal to 5000 as an input. It defines the number of trajectories simulated in each level of multilevel CE method. This parameter is used only in multilevel CE simulations and is not required for sdwSSA simulations. If <code class="code docutils literal"><span class="pre">crossEntropyRuns</span></code>  is missing in the .json file but required to run multilevel CE simulations, default value of 100,000 is used.</dd>
+<dt><code class="docutils literal"><span class="pre">crossEntropyThreshold</span></code></dt>
+<dd><p class="first">takes a real value in (0, 1) as an input and defines the fraction of top performing trajectories chosen to compute an intermediate rare event. It is used only in multilevel CE simulations and not required for sdwSSA simulations. If <code class="code docutils literal"><span class="pre">crossEntropyThreshold</span></code> is missing in the .json file but required to run multilevel CE simulations, default value of 0.01 (1%) is used.
+.. note:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">slow</span> <span class="n">convergence</span> <span class="ow">is</span> <span class="n">detected</span> <span class="n">during</span> <span class="n">the</span> <span class="n">multilevel</span> <span class="n">CE</span> <span class="n">simulations</span><span class="p">,</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">crossEntropyThreshold</span> <span class="ow">is</span> <span class="n">decreased</span> <span class="n">to</span> <span class="mi">80</span><span class="o">%</span> <span class="n">of</span> <span class="n">its</span> <span class="n">previous</span> <span class="n">value</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">crossEntropyMinDataSize</span></code></dt>
+<dd>takes an integer greater or equal to 100 as an input and defines the minimum number of successful trajectories required to compute an intermediate rare event. If <code class="code docutils literal"><span class="pre">crossEntropyMinDataSize</span></code> is missing in the .json file, default value of 200 is used. If <code class="code docutils literal"><span class="pre">crossEntropyRuns</span>&#160; <span class="pre">x</span>&#160; <span class="pre">crossEntropyThreshold</span></code>  is less than <code class="code docutils literal"><span class="pre">crossEntropyMinDataSize</span></code>, the multilevel CE method dynamically adjusts the value of <code class="code docutils literal"><span class="pre">crossEntropyRuns</span></code> such that <code class="code docutils literal"><span class="pre">crossEntropyRuns</span></code> is set to the smallest integer greater than <code class="code docutils literal"><span class="pre">crossEntropyMinDataSize</span></code> divided by <code class="code docutils literal"><span class="pre">crossEntropyThreshold</span></code>.</dd>
+<dt><code class="docutils literal"><span class="pre">outputFileName</span></code></dt>
+<dd><p class="first">takes a string as an input. If <code class="code docutils literal"><span class="pre">outputFileNate</span></code> is missing in the .json file, then a default name is used in the form of <em>modelName</em>_sdwSSA_1e <code class="docutils literal"><span class="pre">log</span></code> (<code class="code docutils literal"><span class="pre">runs</span></code>), where the base of <code class="docutils literal"><span class="pre">log</span></code> is 10 and <em>modelName</em> is the name of the .emodl file.</p>
+<p class="last">Recorded information includes <code class="code docutils literal"><span class="pre">runs</span></code>, estimate for the rare event probability, 68% uncertainty, and sample variance.</p>
+</dd>
+</dl>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://aip.scitation.org/doi/full/10.1063/1.3668100">Roh, Min K. et al. “State-dependent doubly weighted stochastic simulation algorithm for automatic characterization of stochastic biochemical rare events.” The Journal of Chemical Physics 135 (2011): 234108.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="http://aip.scitation.org/doi/full/10.1063/1.3116791">Gillespie, Dan T et al. “Refining the weighted stochastic simulation algorithm.” The Journal of Chemical Physics 130 17 (2009): 174103.</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
