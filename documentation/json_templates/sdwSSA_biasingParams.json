@@ -1,0 +1,49 @@
+{
+    "RARE_EVENT" : {
+        "EXPRESSION" : {
+            "LOCALE" : "global",
+            "NAME" : "reExpression"
+        },
+        "IRE_COUNT" : 2,
+        "THRESHOLDS" :
+            [ 23, 30 ]
+    },
+    "LOCALES" : [
+        {
+            "NAME" : "global",
+            "REACTION_COUNT" : 2,
+            "REACTIONS" : [
+                {
+                "NAME" : "interconvert1",
+                "RARE_EVENT_INFO" : [
+                        {
+                             "BIN_COUNT" : 5,
+                             "GAMMAS" : [2.06, 1.62, 1.28, 1.15, 1.08],
+                             "CUTOFF" : [0.33, 0.47, 0.63, 0.78, 0.93]
+                        },
+                        {
+                             "BIN_COUNT" : 4,
+                             "GAMMAS" : [2.47, 1.64, 1.30, 1.16],
+                             "CUTOFF" : [0.33, 0.38, 0.58, 0.74]
+                        }
+                    ]
+                },
+                {
+                "NAME" : "interconvert2",
+                "RARE_EVENT_INFO" : [
+                        {
+                             "BIN_COUNT" : 4,
+                             "GAMMAS" : [0.91, 1.03, 0.97, 0.61],
+                             "CUTOFF" : [0.21, 0.40, 0.58, 0.63]
+                        },
+                        {
+                             "BIN_COUNT" : 6,
+                             "GAMMAS" : [0.98, 1.01, 0.99, 0.85, 0.61, 0.42],
+                             "CUTOFF" : [0.17, 0.30, 0.40, 0.63, 0.68, 0.87]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
