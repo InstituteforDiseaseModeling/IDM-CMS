@@ -1,0 +1,28 @@
+; sir model with exit condition
+
+(import (rnrs) (emodl cmslib))
+
+(start-model "sir-exit")
+
+(locale site-a)
+(set-locale site-a)
+
+(species S 95)
+(species I 5)
+(species R 0)
+
+(observe Susceptible S)
+(observe Infected I)
+(observe Recovered R)
+
+
+(param beta 0.015)
+(param gamma 1.0)
+
+(reaction S->I (S) (I) (* beta S I))
+(reaction I->R (I) (R) (* gamma I))
+
+(bool exitTimeEvent (== R 85) )
+
+
+(end-model)
