@@ -1,49 +1,232 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>DFSP &#8212; cmsdocumentation 1 documentation</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DFSP &mdash; Compartmental Modeling (CMS)  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/tipuesearch/tipuesearch.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
+        <link rel="up" title="Solvers" href="solvers.html"/>
+        <link rel="next" title="FractionalDiffusion" href="FractionalDiffusion.html"/>
+        <link rel="prev" title="OptimalTransportSSA" href="OptimalTransportSSA.html"/>
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
+
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
    
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="wy-grid-for-nav">
 
-  </head>
-  <body>
-  
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> Compartmental Modeling (CMS)
+          
+
+          
             
+            <img src="_static/IDM_white.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          <div role="search">
+  <form id='rtd-search-form' class='wy-form' action="search-local.html" method="get">
+    <input type="text" name="q" id="tipue_search_input" autocomplete="off"
+           placeholder="Search docs" required>
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DFSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Compartmental Modeling (CMS)</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="introduction-software.html">Introduction to the software</a> &raquo;</li>
+        
+          <li><a href="solvers.html">Solvers</a> &raquo;</li>
+        
+      <li>DFSP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+<!-- From _templates/page.html -->
+
   <div class="section" id="dfsp">
 <h1>DFSP<a class="headerlink" href="#dfsp" title="Permalink to this headline">¶</a></h1>
-<p>Diffusive Finite State Projection (DFSP) <a class="footnote-reference" href="#id2" id="id1">[1]</a> is a solver developed for simulating diffusion processes in compartmental models. Diffusion events are modeled as particles that transition to neighboring locales. DFSP is ideally suited for systems with a small number of particles, i.e. on the order of 10s or 100s of particles.</p>
+<p>Diffusive Finite State Projection (DFSP) <a class="footnote-reference" href="#id2" id="id1">[1]</a> is a solver developed for simulating diffusion processes in compartmental models. Diffusion events are modeled as particles that transition to neighboring locales. DFSP is ideally suited for systems with a small number of particles, i.e. on the order of 10s or 100s of particles per locale.</p>
 <p>In terms of the errors of the diffusion solvers, they are all first-order in time and second-order in space, and are therefore similar to using one of the leaping algorithms for the simulation of diffusion processes.  The diffusion methods however execute single reaction events per time-step, as opposed to leaping algorithms that execute multiple reaction events per time-step, and are therefore useful if the modeler chooses to capture detailed events.  Note that all of the diffusion solvers do not need explicit parameter specifications and will automatically use default parameters.</p>
 <p><strong>.json DFSP file template</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;dfsp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dfsp&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;umax&quot;</span> <span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+        <span class="nt">&quot;verbose&quot;</span> <span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
 <p><strong>A portion of an .emodl file is included below to show how diffusive events are specified for TSSA, DFSP, OTSSA</strong></p>
+<div class="highlight-lisp"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">locale</span> <span class="nv">site-1</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">set-locale</span> <span class="nv">site-1</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">species</span> <span class="nv">A::1</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nv">locale</span> <span class="nv">site-2</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">set-locale</span> <span class="nv">site-2</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">species</span> <span class="nv">A::2</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nv">reaction</span> <span class="nv">A1-&gt;A2</span> <span class="p">(</span><span class="nv">A::1</span><span class="p">)</span> <span class="p">(</span><span class="nv">A::2</span><span class="p">)</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">D</span> <span class="nv">A::1</span><span class="p">))</span>
+<span class="p">(</span><span class="nv">reaction</span> <span class="nv">A2-&gt;A1</span> <span class="p">(</span><span class="nv">A::2</span><span class="p">)</span> <span class="p">(</span><span class="nv">A::1</span><span class="p">)</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">D</span> <span class="nv">A::2</span><span class="p">))</span>
+</pre></div>
+</div>
 <p>Note that <code class="docutils literal"><span class="pre">D</span></code> represents the diffusion coefficient and that the reactions specify transitions of species A to neighboring locales.</p>
 <p><strong>.json syntax for DFSP</strong></p>
 <dl class="docutils">
@@ -64,57 +247,96 @@
 </div>
 
 
+<div id="tipue_search_content"></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FractionalDiffusion.html" class="btn btn-neutral float-right" title="FractionalDiffusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OptimalTransportSSA.html" class="btn btn-neutral" title="OptimalTransportSSA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Intellectual Ventures Management, LLC (IVM). All rights reserved.
+
+    </p>
+  </div>
+<p>EMOD is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">Creative Commons Attribution-Noncommercial-ShareAlike 4.0 License</a>.</p>
+<p>Send documentation feedback to <a href="mailto:feedback@idmod.org" target="_top">feedback@idmod.org</a>.</p>
+
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">cmsdocumentation</a></h1>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/tipuesearch/tipuesearch.js"></script>
+      <script type="text/javascript" src="_static/tipuesearch/tipuesearch_content.js"></script>
+      <script type="text/javascript" src="_static/tipuesearch/tipuesearch_set.js"></script>
+      <script type="text/javascript" src="_static/runsearch.js"></script>
+      <script type="text/javascript" src="_static/tablecollapse.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<!-- Google analytics for IDM docs -->
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87656833-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2017, bbayati.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/documentation/DFSP.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
