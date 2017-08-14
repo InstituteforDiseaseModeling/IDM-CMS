@@ -1,0 +1,11 @@
+{
+    "duration" : 365,
+    "runs"   : 512,
+    "solver" : "NEXTREACTION",
+    "midpoint" : {
+        "epsilon" : 0.001,
+        "nc" : 2,
+        "multiple" : 10.0,
+        "SSAruns" : 100
+    } 
+} 
