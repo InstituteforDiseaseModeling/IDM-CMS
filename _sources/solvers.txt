@@ -1,5 +1,0 @@
-========
-Solvers
-========
-
-Solvers text TBD.

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TauLeaping &mdash; Compartmental Modeling (CMS)  documentation</title>
+  <title>Tau-Leaping &mdash; Compartmental Modeling (CMS)  documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
         <link rel="up" title="Solvers" href="solvers.html"/>
         <link rel="next" title="BLeaping" href="BLeaping.html"/>
-        <link rel="prev" title="Midpoint" href="Midpoint.html"/>
+        <link rel="prev" title="Midpoint Tau-Leaping" href="Midpoint.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -109,11 +109,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">Gibson-Bruck Next Reaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TauLeaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid SSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint Tau-Leaping</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tau-Leaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
@@ -179,7 +179,7 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
-      <li>TauLeaping</li>
+      <li>Tau-Leaping</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,9 +198,50 @@
             
 <!-- From _templates/page.html -->
 
-  <div class="section" id="tauleaping">
-<h1>TauLeaping<a class="headerlink" href="#tauleaping" title="Permalink to this headline">¶</a></h1>
-<p>Tau Leaping</p>
+  <div class="section" id="tau-leaping">
+<h1>Tau-Leaping<a class="headerlink" href="#tau-leaping" title="Permalink to this headline">¶</a></h1>
+<p>Tau-Leaping is a stochastic simulation algorithm (SSA) developed by Gillespie to increase the computational speed of the exact SSAs <a class="footnote-reference" href="#id4" id="id1">[1]</a>.  Instead of computing the time to every reaction, this algorithm approximates the process and attempts to leap in time, executing a large number of reactions in a period tau.  This algorithm is computationally faster, however, the approximation removes the “exact” connection to the solution of the master equation for the system.</p>
+<p>The implementation of tau-leaping in this framework is based on a recent work by Cao et. al <a class="footnote-reference" href="#id5" id="id2">[2]</a>.  This modified tau-leaping algorithm helps avoid the possibility of creating negative species counts within a compartment.</p>
+<p><strong>.json file template</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
+    <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;TAULEAPING&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tau-leaping&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;epsilon&quot;</span> <span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+        <span class="nt">&quot;nc&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;multiple&quot;</span> <span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+        <span class="nt">&quot;SSAruns&quot;</span> <span class="p">:</span> <span class="mi">100</span>
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p><strong>.json syntax for Tau-leaping</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">TAU</span></code> and <code class="code docutils literal"><span class="pre">TAULEAPING</span></code> ARE the only valid names to run this solver.</dd>
+<dt><code class="docutils literal"><span class="pre">epsilon</span></code></dt>
+<dd>takes a float as an input.  The parameter <code class="code docutils literal"><span class="pre">epsilon</span></code> is used to compute the largest time step tau that is not likely to result in propensity function changes by more than epsilon multiplied by the sum of all the propensities.  For larger values of tau, the step sizes will also be larger.  If the <code class="code docutils literal"><span class="pre">epsilon</span></code> field is missing in the .json file, then the tau-leaping solver will set the value to 0.001.</dd>
+<dt><code class="docutils literal"><span class="pre">nc</span></code></dt>
+<dd>takes an integer as an input. The parameter <code class="code docutils literal"><span class="pre">nc</span></code> is used as a threshold to separate critical and noncritical reactions.  A critical reaction is defined as a reaction that is at risk for driving the count of a species below zero.  If <code class="code docutils literal"><span class="pre">nc</span></code> is chosen to be extremely large, then all reactions become critical.  This case would reduce to the exact SSA.  Alternatively, if <code class="code docutils literal"><span class="pre">nc</span></code> is chosen to be zero, then there will not be any noncritical reactions.  The case reduces to the original tauleaping algorithm in <a class="footnote-reference" href="#id4" id="id3">[1]</a>.  If the <code class="code docutils literal"><span class="pre">nc</span></code> field is missing in the .json file, then the tauleaping solver will set the value to 2.</dd>
+<dt><code class="docutils literal"><span class="pre">multiple</span></code></dt>
+<dd>takes an integer as an input.  The parameter <code class="code docutils literal"><span class="pre">multiple</span></code> is used as a threshold to decide on whether to execute a series of SSA steps instead of a tauleap.  If a leap value of tau is chosen (from the noncritical reaction rates) such that it is less than the <code class="code docutils literal"><span class="pre">multiple</span></code> times 1 over the total propensity rate, than the SSA steps are performed.  If the <code class="code docutils literal"><span class="pre">multiple</span></code> field is missing in the .json file, then the tauleaping solver will set the value to 10.</dd>
+<dt><code class="docutils literal"><span class="pre">SSAruns</span></code></dt>
+<dd>takes an integer as an input. It defines the number of SSA runs that are performed when the proposed leap size from the noncritical reactions is less than <code class="code docutils literal"><span class="pre">multiple</span></code> times 1 over the total propensity rate.  If the <code class="code docutils literal"><span class="pre">SSAruns</span></code> field is missing in the .json file, then the tau-leaping solver will set the value to 100.</dd>
+</dl>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1063/1.1378322">Gillespie, D T. et al. “Approximate accelerated stochastic simulation of chemically reacting systems.” The Journal of Chemical Physics 115 4 (2001): 1716.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="http://dx.doi.org/10.1063/1.1992473">Cao, Y. et al. “Avoiding negative populations in explicit Poisson tau-leaping.” The Journal of Chemical Physics 123 (2005): 054104.</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -218,7 +259,7 @@
         <a href="BLeaping.html" class="btn btn-neutral float-right" title="BLeaping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Midpoint.html" class="btn btn-neutral" title="Midpoint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Midpoint.html" class="btn btn-neutral" title="Midpoint Tau-Leaping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -279,21 +320,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>

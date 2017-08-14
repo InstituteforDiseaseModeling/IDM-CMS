@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hybrid &mdash; Compartmental Modeling (CMS)  documentation</title>
+  <title>Hybrid SSA &mdash; Compartmental Modeling (CMS)  documentation</title>
   
 
   
@@ -45,7 +45,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
         <link rel="up" title="Solvers" href="solvers.html"/>
-        <link rel="next" title="Midpoint" href="Midpoint.html"/>
+        <link rel="next" title="Midpoint Tau-Leaping" href="Midpoint.html"/>
         <link rel="prev" title="ExitTimes" href="ExitTimes.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
@@ -109,11 +109,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">Gibson-Bruck Next Reaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hybrid SSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint Tau-Leaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">Tau-Leaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
@@ -179,7 +179,7 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
-      <li>Hybrid</li>
+      <li>Hybrid SSA</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,9 +198,34 @@
             
 <!-- From _templates/page.html -->
 
-  <div class="section" id="hybrid">
-<h1>Hybrid<a class="headerlink" href="#hybrid" title="Permalink to this headline">¶</a></h1>
-<p>Hybrid</p>
+  <div class="section" id="hybrid-ssa">
+<h1>Hybrid SSA<a class="headerlink" href="#hybrid-ssa" title="Permalink to this headline">¶</a></h1>
+<p>An event queue SSA hybrid is an algorithm that combines a Gillespie Solver and an event queue <a class="footnote-reference" href="#id2" id="id1">[1]</a>.  For the SSA, the rates associated with the chemical reactions are based on a fundamental observation that the reactions occur at an average rate.  In epidemiology, this assumption may hold well for certain state transitions (e.g. Susceptible to Infected), but not others (e.g. Infected to Recovered).  In the latter case, the hybrid algorithm uses the SSA for the transitions that are similar to chemical reactions, whereas event queues are used for the other types of transitions such as delays.  For example, the event queue could be utilized for a fixed recovery time of individuals from the infected state.  The combination of these two algorithms allow for a greater range of disease models to be implemented by the compartmental modeling structure.</p>
+<p><strong>.json file template</strong></p>
+<div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
+    <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;HYBRID&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;hybrid&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;method&quot;</span> <span class="p">:</span> <span class="s2">&quot;RejectionMethod&quot;</span>
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p><strong>.json syntax for Hybrid SSA</strong></p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">HYBRID</span></code> is the only valid name to run this solver.</dd>
+<dt><code class="docutils literal"><span class="pre">method</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">RejectionMethod</span></code> and <code class="code docutils literal"><span class="pre">ExactMethod</span></code> are the only valid names for methods in this solver.  The default for this field is <code class="code docutils literal"><span class="pre">RejectionMethod</span></code>.</dd>
+</dl>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/17411109">Cai, X. “Exact stochastic simulation of coupled chemical reactions with delays.” The Journal of Chemical Physics 126 (2007): 124108.</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -215,7 +240,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Midpoint.html" class="btn btn-neutral float-right" title="Midpoint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Midpoint.html" class="btn btn-neutral float-right" title="Midpoint Tau-Leaping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ExitTimes.html" class="btn btn-neutral" title="ExitTimes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -279,21 +304,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>
