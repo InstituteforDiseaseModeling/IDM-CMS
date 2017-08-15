@@ -2,24 +2,13 @@
 Solvers
 ========
 
+The CMS software offers 16 different solvers. They can be categorized into the following categories.
+
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 7
    :titlesonly:
 
-   Gillespie
-   GillespieFirstReaction
-   GibsonBruck
-   ExitTimes
-   Hybrid
-   Midpoint
-   TauLeaping
-   BLeaping
-   RLeaping
-   RLeapingFast
-   TransportSSA
-   OptimalTransportSSA
-   DFSP
-   FractionalDiffusion
-   dwSSA
-   sdwSSA
-
+   Exact Methods
+   Approximate Methods 
+   Spatial Simulation Methods
+   Specialty Methods
