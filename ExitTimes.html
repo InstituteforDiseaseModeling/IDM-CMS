@@ -44,9 +44,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
-        <link rel="next" title="Hybrid" href="Hybrid.html"/>
-        <link rel="prev" title="GibsonBruck" href="GibsonBruck.html"/>
+        <link rel="up" title="Specialty Methods" href="Specialty Methods.html"/>
+        <link rel="next" title="dwSSA" href="dwSSA.html"/>
+        <link rel="prev" title="Specialty Methods" href="Specialty Methods.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -101,34 +101,27 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exact Methods.html">Exact Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ExitTimes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +172,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Specialty Methods.html">Specialty Methods</a> &raquo;</li>
+        
       <li>ExitTimes</li>
     
     
@@ -206,7 +201,7 @@
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
     <span class="nt">&quot;runs&quot;</span>     <span class="p">:</span> <span class="mi">20000</span><span class="p">,</span>
-    <span class="nt">&quot;solver&quot;</span>   <span class="p">:</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span>   <span class="p">:</span> <span class="s2">&quot;ET&quot;</span><span class="p">,</span>
     <span class="nt">&quot;et&quot;</span> <span class="p">:</span> <span class="p">{</span>
 	      <span class="nt">&quot;verbose&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 	      <span class="nt">&quot;epsilon&quot;</span> <span class="p">:</span> <span class="mf">0.2</span>
@@ -247,6 +242,8 @@
 </div>
 <p><strong>.json syntax for ExitTimes</strong></p>
 <dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">ExitTimes</span></code>, <code class="code docutils literal"><span class="pre">ET</span></code>, and <code class="code docutils literal"><span class="pre">ExitTime</span></code> are all valid names to run this solver.</dd>
 <dt><code class="docutils literal"><span class="pre">epsilon</span></code> (optional)</dt>
 <dd><code class="docutils literal"><span class="pre">epsilon</span></code>  takes a float between 0 and 1 and determines the error of the approximation.  A value of zero is equivalent to a standard stochastic simulation and a value of 1 is the most aggressive speedup (and largest error).  A default value of 0.2 is used which can be overridden by the user.  We recommend not changing this value.</dd>
 <dt><code class="docutils literal"><span class="pre">verbose</span></code> (optional)</dt>
@@ -273,10 +270,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Hybrid.html" class="btn btn-neutral float-right" title="Hybrid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dwSSA.html" class="btn btn-neutral float-right" title="dwSSA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="GibsonBruck.html" class="btn btn-neutral" title="GibsonBruck" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Specialty Methods.html" class="btn btn-neutral" title="Specialty Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -337,21 +334,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>

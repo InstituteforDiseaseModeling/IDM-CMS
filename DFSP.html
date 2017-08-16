@@ -44,9 +44,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
+        <link rel="up" title="Spatial Simulation Methods" href="Spatial Simulation Methods.html"/>
         <link rel="next" title="FractionalDiffusion" href="FractionalDiffusion.html"/>
-        <link rel="prev" title="OptimalTransportSSA" href="OptimalTransportSSA.html"/>
+        <link rel="prev" title="Spatial Simulation Methods" href="Spatial Simulation Methods.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -101,34 +101,28 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exact Methods.html">Exact Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">DFSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +173,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Spatial Simulation Methods.html">Spatial Simulation Methods</a> &raquo;</li>
+        
       <li>DFSP</li>
     
     
@@ -206,7 +202,7 @@
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
     <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
-    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;dfsp&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;DFSP&quot;</span><span class="p">,</span>
     <span class="nt">&quot;dfsp&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;umax&quot;</span> <span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
         <span class="nt">&quot;verbose&quot;</span> <span class="p">:</span> <span class="kc">false</span>
@@ -214,7 +210,7 @@
 <span class="p">}</span> 
 </pre></div>
 </div>
-<p><strong>A portion of an .emodl file is included below to show how diffusive events are specified for TSSA, DFSP, OTSSA</strong></p>
+<p><strong>A portion of an .emodl file is included below to show how diffusive events are specified for</strong> <a class="reference internal" href="TransportSSA.html"><span class="doc">TransportSSA</span></a>, <strong>DFSP, and</strong> <a class="reference internal" href="OptimalTransportSSA.html"><span class="doc">OptimalTransportSSA</span></a> <strong>.</strong></p>
 <div class="highlight-lisp"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">locale</span> <span class="nv">site-1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">set-locale</span> <span class="nv">site-1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">species</span> <span class="nv">A::1</span> <span class="mi">1000</span><span class="p">)</span>
@@ -230,6 +226,8 @@
 <p>Note that <code class="docutils literal"><span class="pre">D</span></code> represents the diffusion coefficient and that the reactions specify transitions of species A to neighboring locales.</p>
 <p><strong>.json syntax for DFSP</strong></p>
 <dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">DFSP</span></code>, <code class="code docutils literal"><span class="pre">DiffusionFSP</span></code>, and <code class="code docutils literal"><span class="pre">TransportFSP</span></code> are all valid names to run this solver.</dd>
 <dt><code class="docutils literal"><span class="pre">epsilon</span></code> (optional)</dt>
 <dd><code class="docutils literal"><span class="pre">epsilon</span></code>  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.</dd>
 <dt><code class="docutils literal"><span class="pre">verbose</span></code> (optional)</dt>
@@ -261,7 +259,7 @@
         <a href="FractionalDiffusion.html" class="btn btn-neutral float-right" title="FractionalDiffusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="OptimalTransportSSA.html" class="btn btn-neutral" title="OptimalTransportSSA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Spatial Simulation Methods.html" class="btn btn-neutral" title="Spatial Simulation Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -322,21 +320,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>

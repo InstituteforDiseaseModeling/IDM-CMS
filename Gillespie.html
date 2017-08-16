@@ -44,9 +44,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
+        <link rel="up" title="Exact Methods" href="Exact Methods.html"/>
         <link rel="next" title="GillespieFirstReaction" href="GillespieFirstReaction.html"/>
-        <link rel="prev" title="Solvers" href="solvers.html"/>
+        <link rel="prev" title="Exact Methods" href="Exact Methods.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -101,34 +101,27 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Exact Methods.html">Exact Methods</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Gillespie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GibsonBruck.html">Gibson-Bruck Next Reaction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +172,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Exact Methods.html">Exact Methods</a> &raquo;</li>
+        
       <li>Gillespie</li>
     
     
@@ -200,7 +195,7 @@
 
   <div class="section" id="gillespie">
 <h1>Gillespie<a class="headerlink" href="#gillespie" title="Permalink to this headline">¶</a></h1>
-<p>Gillespie algorithm <a class="footnote-reference" href="#id2" id="id1">[1]</a>, also known as the Stochastic Simulation Algorithm (SSA), is an exact Monte Carlo procedure for numerically generating time trajectories of the system state populations in accordance with the chemical master equation (CME), which is the governing probability distribution of all possible states in time in homogenously mixed population. Gillespie solver features the Direct Method (DM) implementation, which is the most commonly used. The other variant of the algorithm, First Reaction Method (FRM), is theoretically equivalent to the DM but differs in implementation. FRM is implemented in <a class="reference internal" href="GillespieFirstReaction.html"><span class="doc">GillespieFirstReaction</span></a>.</p>
+<p>Gillespie algorithm <a class="footnote-reference" href="#id2" id="id1">[1]</a> , also known as the Stochastic Simulation Algorithm (SSA), is an exact Monte Carlo procedure for numerically generating time trajectories of the system state populations in accordance with the chemical master equation (CME), which is the governing probability distribution of all possible states in time in homogenously mixed population. Gillespie solver features the Direct Method (DM) implementation, which is the most commonly used. The other variant of the algorithm, First Reaction Method (FRM), is theoretically equivalent to the DM but differs in implementation. FRM is implemented in <a class="reference internal" href="GillespieFirstReaction.html"><span class="doc">GillespieFirstReaction</span></a>.</p>
 <p>While these methods are exact, both the Gillespie and the <a class="reference internal" href="GillespieFirstReaction.html"><span class="doc">GillespieFirstReaction</span></a> solvers are computationally expensive as every reaction and its firing time are explicitly computed.</p>
 <p><strong>.json file template</strong></p>
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -248,7 +243,7 @@
         <a href="GillespieFirstReaction.html" class="btn btn-neutral float-right" title="GillespieFirstReaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="solvers.html" class="btn btn-neutral" title="Solvers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Exact Methods.html" class="btn btn-neutral" title="Exact Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -309,21 +304,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>

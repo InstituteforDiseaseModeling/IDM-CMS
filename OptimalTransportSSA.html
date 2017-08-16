@@ -44,9 +44,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
-        <link rel="next" title="DFSP" href="DFSP.html"/>
-        <link rel="prev" title="TransportSSA" href="TransportSSA.html"/>
+        <link rel="up" title="Spatial Simulation Methods" href="Spatial Simulation Methods.html"/>
+        <link rel="next" title="TransportSSA" href="TransportSSA.html"/>
+        <link rel="prev" title="FractionalDiffusion" href="FractionalDiffusion.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -101,34 +101,28 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">Gibson-Bruck Next Reaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid SSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint Tau-Leaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">Tau-Leaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exact Methods.html">Exact Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="DFSP.html">DFSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">OptimalTransportSSA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +173,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Spatial Simulation Methods.html">Spatial Simulation Methods</a> &raquo;</li>
+        
       <li>OptimalTransportSSA</li>
     
     
@@ -200,7 +196,7 @@
 
   <div class="section" id="optimaltransportssa">
 <h1>OptimalTransportSSA<a class="headerlink" href="#optimaltransportssa" title="Permalink to this headline">¶</a></h1>
-<p>The OptimalTransport Diffusion (OTSSA) is a solver that attempts to automatically choose between the TransportSSA (ISSA) <a class="footnote-reference" href="#id3" id="id1">[1]</a> and Diffusive Finite State Projection (DFSP) <a class="footnote-reference" href="#id4" id="id2">[2]</a> solvers. Diffusion events are modeled as particles that transition to neighboring locales. The ISSA method is ideally suited for systems with a large number of particles, i.e. 1000 particles or more at each locale. On the other hand, DFSP is ideally suited for systems with a small number of particles, i.e. on the order of 10s or 100s of particles.  OTSSA will attempt to dynamically choose which of the above solvers to use per time-step.  This solver is recommended if the modeler does not know whether the system contains a small or large number of particles, or if the modeler knows that the system evolve with both large and small populations.</p>
+<p>The OptimalTransport Diffusion (OTSSA) is a solver that attempts to automatically choose between the <a class="reference internal" href="TransportSSA.html"><span class="doc">TransportSSA</span></a> (ISSA) <a class="footnote-reference" href="#id3" id="id1">[1]</a> and <a class="reference internal" href="DFSP.html"><span class="doc">Diffusive Finite State Projection (DFSP)</span></a> <a class="footnote-reference" href="#id4" id="id2">[2]</a> solvers. Diffusion events are modeled as particles that transition to neighboring locales. The ISSA method is ideally suited for systems with a large number of particles, i.e. 1000 particles or more at each locale. On the other hand, DFSP is ideally suited for systems with a small number of particles, i.e. on the order of 10s or 100s of particles.  OTSSA will attempt to dynamically choose which of the above solvers to use per time-step.  This solver is recommended if the modeler does not know whether the system contains a small or large number of particles, or if the modeler knows that the system evolve with both large and small populations.</p>
 <p>In terms of the errors of the diffusion solvers, they are all first-order in time and second-order in space, and are therefore similar to using one of the leaping algorithms for the simulation of diffusion processes.  The diffusion methods however execute single reaction events per time-step, as opposed to leaping algorithms that execute multiple reaction events per time-step, and are therefore useful if the modeler chooses to capture detailed events.  Note that all of the diffusion solvers do not need explicit parameter specifications and will automatically use default parameters.</p>
 <p><strong>.json OTSSA file template</strong></p>
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -222,7 +218,7 @@
 <span class="p">}</span> 
 </pre></div>
 </div>
-<p><strong>A portion of an .emodl file is included below to show how diffusive events are specified for TSSA, DFSP, OTSSA</strong></p>
+<p><strong>A portion of an .emodl file is included below to show how diffusive events are specified for</strong> <a class="reference internal" href="TransportSSA.html"><span class="doc">TransportSSA</span></a> <strong>,</strong> <a class="reference internal" href="DFSP.html"><span class="doc">DFSP</span></a> <strong>, and OTSSA.</strong></p>
 <div class="highlight-lisp"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">locale</span> <span class="nv">site-1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">set-locale</span> <span class="nv">site-1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">species</span> <span class="nv">A::1</span> <span class="mi">1000</span><span class="p">)</span>
@@ -238,6 +234,8 @@
 <p>Note that <code class="docutils literal"><span class="pre">D</span></code> represents the diffusion coefficient and that the reactions specify transitions of species A to neighboring locales.</p>
 <p><strong>.json syntax for OTSSA</strong></p>
 <dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">OTSSA</span></code>, <code class="code docutils literal"><span class="pre">OptimalTransportSSA</span></code>, and <code class="code docutils literal"><span class="pre">DFSPPrime</span></code> are all valid names to run this solver.</dd>
 <dt><code class="docutils literal"><span class="pre">epsilon</span></code> (optional)</dt>
 <dd><code class="docutils literal"><span class="pre">epsilon</span></code>  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.</dd>
 <dt><code class="docutils literal"><span class="pre">verbose</span></code> (optional)</dt>
@@ -279,10 +277,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="DFSP.html" class="btn btn-neutral float-right" title="DFSP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="TransportSSA.html" class="btn btn-neutral float-right" title="TransportSSA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="TransportSSA.html" class="btn btn-neutral" title="TransportSSA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="FractionalDiffusion.html" class="btn btn-neutral" title="FractionalDiffusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

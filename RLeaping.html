@@ -44,9 +44,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
+        <link rel="up" title="Approximate Methods" href="Approximate Methods.html"/>
         <link rel="next" title="RLeapingFast" href="RLeapingFast.html"/>
-        <link rel="prev" title="BLeaping" href="BLeaping.html"/>
+        <link rel="prev" title="Midpoint Tau-Leaping" href="Midpoint.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -101,34 +101,30 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GibsonBruck.html">GibsonBruck</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">TauLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exact Methods.html">Exact Methods</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Hybrid.html">Hybrid SSA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Midpoint.html">Midpoint Tau-Leaping</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RLeaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TauLeaping.html">Tau-Leaping</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +175,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Approximate Methods.html">Approximate Methods</a> &raquo;</li>
+        
       <li>RLeaping</li>
     
     
@@ -200,13 +198,13 @@
 
   <div class="section" id="rleaping">
 <h1>RLeaping<a class="headerlink" href="#rleaping" title="Permalink to this headline">¶</a></h1>
-<p>RLeaping <a class="footnote-reference" href="#id3" id="id1">[1]</a> is a solver developed for speeding up the standard stochastic simulation algorithm.  In the standard stochastic simulation algorithm (Gillespie’s method <a class="footnote-reference" href="#id4" id="id2">[2]</a>) each reaction is simulated individually.  In RLeaping, reactions are grouped together and executed at the same time. While leaping methods are approximate, they result in faster simulations.</p>
+<p>RLeaping <a class="footnote-reference" href="#id3" id="id1">[1]</a> is a solver developed for speeding up the <a class="reference internal" href="Gillespie.html"><span class="doc">standard stochastic simulation algorithm</span></a> <a class="footnote-reference" href="#id4" id="id2">[2]</a>.  In the standard stochastic simulation algorithm, each reaction is simulated individually.  In RLeaping, reactions are grouped together and executed at the same time. While leaping methods are approximate, they result in faster simulations.</p>
 <p>RLeaping can be supplied with four parameters: <code class="docutils literal"><span class="pre">epsilon</span></code>, <code class="docutils literal"><span class="pre">theta</span></code>, <code class="docutils literal"><span class="pre">sortingInterval</span></code>, and <code class="docutils literal"><span class="pre">verbose</span></code>. However, if the user does not supply these values, default values will be used.  It is recommended to not change the default values unless there is reason to do so.  If one wishes to speed up the simulation time, the <code class="docutils literal"><span class="pre">epsilon</span></code> parameter should be made larger.  Note however that the accuracy of the method will decrease if epsilon is made larger.</p>
 <p><strong>.json RLeaping file template</strong></p>
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
     <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
-    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;RLEAPING&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;RLeaping&quot;</span><span class="p">,</span>
     <span class="nt">&quot;r-leaping&quot;</span> <span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;epsilon&quot;</span> <span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
         <span class="nt">&quot;theta&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
@@ -218,6 +216,8 @@
 </div>
 <p><strong>.json syntax for RLeaping</strong></p>
 <dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">R</span></code> and <code class="code docutils literal"><span class="pre">RLeaping</span></code> are both valid names to run this solver.</dd>
 <dt><code class="docutils literal"><span class="pre">epsilon</span></code> (optional)</dt>
 <dd><code class="docutils literal"><span class="pre">epsilon</span></code>  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.</dd>
 <dt><code class="docutils literal"><span class="pre">theta</span></code> (optional)</dt>
@@ -257,7 +257,7 @@
         <a href="RLeapingFast.html" class="btn btn-neutral float-right" title="RLeapingFast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="BLeaping.html" class="btn btn-neutral" title="BLeaping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Midpoint.html" class="btn btn-neutral" title="Midpoint Tau-Leaping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -318,21 +318,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>

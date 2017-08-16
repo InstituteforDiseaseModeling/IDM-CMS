@@ -44,8 +44,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="up" title="Solvers" href="solvers.html"/>
-        <link rel="next" title="ExitTimes" href="ExitTimes.html"/>
+        <link rel="up" title="Exact Methods" href="Exact Methods.html"/>
+        <link rel="next" title="Approximate Methods" href="Approximate Methods.html"/>
         <link rel="prev" title="GillespieFirstReaction" href="GillespieFirstReaction.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
@@ -101,34 +101,27 @@
             
             
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="introduction-software.html">Introduction to the software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="emodl.html">EMODL – model language for an input model file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration-file.html">Configuration file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random-number-library.html">Random number library</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="solvers.html">Solvers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Gibson-Bruck Next Reaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ExitTimes.html">ExitTimes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Hybrid.html">Hybrid SSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Midpoint.html">Midpoint Tau-Leaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TauLeaping.html">Tau-Leaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BLeaping.html">BLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeaping.html">RLeaping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLeapingFast.html">RLeapingFast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransportSSA.html">TransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OptimalTransportSSA.html">OptimalTransportSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DFSP.html">DFSP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FractionalDiffusion.html">FractionalDiffusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dwSSA.html">dwSSA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sdwSSA.html">sdwSSA</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Exact Methods.html">Exact Methods</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Gillespie.html">Gillespie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GillespieFirstReaction.html">GillespieFirstReaction</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Gibson-Bruck Next Reaction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Approximate Methods.html">Approximate Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Spatial Simulation Methods.html">Spatial Simulation Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Specialty Methods.html">Specialty Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="output-files.html">Output files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction-modeling.html">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -179,6 +172,8 @@
         
           <li><a href="solvers.html">Solvers</a> &raquo;</li>
         
+          <li><a href="Exact Methods.html">Exact Methods</a> &raquo;</li>
+        
       <li>Gibson-Bruck Next Reaction</li>
     
     
@@ -205,14 +200,14 @@
 <div class="highlight-JSON"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;duration&quot;</span> <span class="p">:</span> <span class="mi">365</span><span class="p">,</span>
     <span class="nt">&quot;runs&quot;</span>   <span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
-    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;NEXTREACTION&quot;</span>
+    <span class="nt">&quot;solver&quot;</span> <span class="p">:</span> <span class="s2">&quot;NextReaction&quot;</span>
 <span class="p">}</span> 
 </pre></div>
 </div>
 <p><strong>.json syntax for Gibson-Bruck Next Reaction Method</strong></p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">solver</span></code></dt>
-<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">NEXT</span></code>, <code class="code docutils literal"><span class="pre">NEXTREACTION</span></code>, and <code class="code docutils literal"><span class="pre">GIBSONBRUCK</span></code> ARE the only valid names to run this solver.</dd>
+<dd>takes a string as an input. <code class="code docutils literal"><span class="pre">Next</span></code>, <code class="code docutils literal"><span class="pre">NextReaction</span></code>, and <code class="code docutils literal"><span class="pre">GobsonBruck</span></code> are all valid names to run this solver.</dd>
 </dl>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="id3" rules="none">
@@ -235,7 +230,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ExitTimes.html" class="btn btn-neutral float-right" title="ExitTimes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Approximate Methods.html" class="btn btn-neutral float-right" title="Approximate Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="GillespieFirstReaction.html" class="btn btn-neutral" title="GillespieFirstReaction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
