@@ -9,9 +9,9 @@ Introduction text TBD.
    :maxdepth: 3
    :titlesonly:
 
+   introduction-modeling
    cms-installation
    introduction-software
-   introduction-modeling
    howto-software
    glossary
 

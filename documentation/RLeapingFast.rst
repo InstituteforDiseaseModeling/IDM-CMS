@@ -13,6 +13,9 @@ RLeapingFast can be supplied with four parameters: ``epsilon``, ``theta``, ``sor
 
 **.json syntax for RLeapingFast**
 
+``solver``
+	takes a string as an input. :code:`RF`, :code:`RFast`, and :code:`RLeapingFast` are all valid names to run this solver.
+
 ``epsilon`` (optional)
 	``epsilon``  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.  
 

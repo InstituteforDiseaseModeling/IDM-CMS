@@ -2,7 +2,7 @@
 RLeaping
 ========
 
-RLeaping [1]_ is a solver developed for speeding up the standard stochastic simulation algorithm.  In the standard stochastic simulation algorithm (Gillespie’s method [2]_) each reaction is simulated individually.  In RLeaping, reactions are grouped together and executed at the same time. While leaping methods are approximate, they result in faster simulations.  
+RLeaping [1]_ is a solver developed for speeding up the :doc:`standard stochastic simulation algorithm <Gillespie>` [2]_.  In the standard stochastic simulation algorithm, each reaction is simulated individually.  In RLeaping, reactions are grouped together and executed at the same time. While leaping methods are approximate, they result in faster simulations.  
 
 RLeaping can be supplied with four parameters: ``epsilon``, ``theta``, ``sortingInterval``, and ``verbose``. However, if the user does not supply these values, default values will be used.  It is recommended to not change the default values unless there is reason to do so.  If one wishes to speed up the simulation time, the ``epsilon`` parameter should be made larger.  Note however that the accuracy of the method will decrease if epsilon is made larger.  
 
@@ -12,6 +12,9 @@ RLeaping can be supplied with four parameters: ``epsilon``, ``theta``, ``sorting
 	:language: JSON
 
 **.json syntax for RLeaping**
+
+``solver``
+	takes a string as an input. :code:`R` and :code:`RLeaping` are both valid names to run this solver.
 
 ``epsilon`` (optional)
 	``epsilon``  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.  

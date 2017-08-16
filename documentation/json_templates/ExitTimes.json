@@ -1,7 +1,7 @@
 {
     "duration" : 30,
     "runs"     : 20000,
-    "solver"   : "et",
+    "solver"   : "ET",
     "et" : {
 	      "verbose" : false,
 	      "epsilon" : 0.2

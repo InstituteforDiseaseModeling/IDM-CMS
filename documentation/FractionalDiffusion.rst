@@ -15,6 +15,8 @@ Diffusive events are not specified since the solver assumes that all species can
 
 **.json syntax for FractionalDiffusion**
 
+``solver``
+	takes a string as an input. :code:`FractionalDiffusion`, :code:`Fractional`, :code:`FD`, :code:`Levy`, and :code:`LevyFlight` are all valid names to run this solver.
 ``alpha`` (optional)
 	``alpha``  takes a float greater than 0 and less than or equal to 2 and determines the value of the fractional derivative.  A value close to zero results in a diffusive process with very large kurtosis.  A value close (or equal) to 2 results in Gaussian-like diffusion.  A default value of 1 is used which results in a Cauchy distribution for the diffusion process.   
 ``Dalpha`` (optional) 

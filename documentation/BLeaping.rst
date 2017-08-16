@@ -17,7 +17,7 @@ Skipping tau selection and thus never reverting back to SSA may speed up the sim
 	takes a string as an input. :code:`B`, :code:`BLeap`, and :code:`BLeaping` are all valid names to run this solver.
 
 ``Tau``
-	takes a float as an input, which is the size of the fixed time step used throughout the simulation.  If :codeL`tau` is missing in the .json file, default value of 0.1 is used. 
+	takes a float as an input, which is the size of the fixed time step used throughout the simulation.  If :code:`tau` is missing in the .json file, a default value of 0.1 is used. 
 
 
 .. rubric:: Footnotes

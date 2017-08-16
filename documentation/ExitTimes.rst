@@ -18,6 +18,8 @@ ExitTimes can be supplied with two parameters: ``epsilon`` and ``verbose``. Howe
 
 **.json syntax for ExitTimes**
 
+``solver``
+	takes a string as an input. :code:`ExitTimes`, :code:`ET`, and :code:`ExitTime` are all valid names to run this solver.
 ``epsilon`` (optional)
 	``epsilon``  takes a float between 0 and 1 and determines the error of the approximation.  A value of zero is equivalent to a standard stochastic simulation and a value of 1 is the most aggressive speedup (and largest error).  A default value of 0.2 is used which can be overridden by the user.  We recommend not changing this value.  
 ``verbose`` (optional)

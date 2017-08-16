@@ -3,7 +3,7 @@ Gillespie
 =========
 
 
-Gillespie algorithm [1]_, also known as the Stochastic Simulation Algorithm (SSA), is an exact Monte Carlo procedure for numerically generating time trajectories of the system state populations in accordance with the chemical master equation (CME), which is the governing probability distribution of all possible states in time in homogenously mixed population. Gillespie solver features the Direct Method (DM) implementation, which is the most commonly used. The other variant of the algorithm, First Reaction Method (FRM), is theoretically equivalent to the DM but differs in implementation. FRM is implemented in :doc:`GillespieFirstReaction`. 
+Gillespie algorithm [1]_ , also known as the Stochastic Simulation Algorithm (SSA), is an exact Monte Carlo procedure for numerically generating time trajectories of the system state populations in accordance with the chemical master equation (CME), which is the governing probability distribution of all possible states in time in homogenously mixed population. Gillespie solver features the Direct Method (DM) implementation, which is the most commonly used. The other variant of the algorithm, First Reaction Method (FRM), is theoretically equivalent to the DM but differs in implementation. FRM is implemented in :doc:`GillespieFirstReaction`. 
 
 While these methods are exact, both the Gillespie and the :doc:`GillespieFirstReaction` solvers are computationally expensive as every reaction and its firing time are explicitly computed. 
 
