@@ -1,7 +1,7 @@
 {
     "duration" : 365,
     "runs"   : 512,
-    "solver" : "RLEAPING",
+    "solver" : "RLeaping",
     "r-leaping" : {
         "epsilon" : 0.01,
         "theta" : 0.0,

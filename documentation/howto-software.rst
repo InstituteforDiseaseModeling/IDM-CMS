@@ -13,4 +13,3 @@ How to use the software TBD.
    create-network-model
    custom-propensity-function
    run-simulations
-   output-analysis-matlab

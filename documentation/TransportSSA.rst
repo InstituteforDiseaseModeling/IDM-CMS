@@ -11,7 +11,7 @@ In terms of the errors of the diffusion solvers, they are all first-order in tim
 .. literalinclude:: /json_templates/TransportSSA.json
 	:language: JSON
 
-**A portion of an .emodl file is included below to show how diffusive events are specified for TSSA, DFSP, OTSSA**
+**A portion of an .emodl file is included below to show how diffusive events are specified for TSSA,** :doc:`DFSP` **, and** :doc:`OTSSA <OptimalTransportSSA>` **.**
 
 .. literalinclude:: /emodl_templates/TransportSSA.emodl
 	:language: lisp
@@ -20,6 +20,8 @@ Note that ``D`` represents the diffusion coefficient and that the reactions spec
 
 **.json syntax for TSSA**
 
+``solver``
+	takes a string as an input. :code:`TSSA`, :code:`TransportSSA`, :code:`DiffusionSSA`, and :code:`iSSA` are all valid names to run this solver.
 ``epsilon`` (optional)
 	``epsilon``  takes a float greater than zero 0 and much less than 1 and determines the error of the approximation.  A value of close to zero is equivalent to a standard stochastic simulation and a value close to 1 is the most aggressive speedup (and largest error).  A default value of 0.01 is used which can be overridden by the user.  We recommend not changing this value.   
 ``verbose`` (optional)

@@ -2,7 +2,7 @@
     "duration" : 10,
     "runs"     : 1,
     "samples"  : 100,
-    "solver"   : "fd",
+    "solver"   : "FD",
     "fd" : {
         "alpha"    : 1.6,
 		    "constant" : 0.025,

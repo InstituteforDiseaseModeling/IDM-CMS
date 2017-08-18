@@ -8,9 +8,10 @@ The following methods sacrifice accuracy for computational efficiency.
    :maxdepth: 7
    :titlesonly:
    
+   BLeaping
    Hybrid
    Midpoint
-   TauLeaping
-   BLeaping
    RLeaping
    RLeapingFast
+   TauLeaping
+   

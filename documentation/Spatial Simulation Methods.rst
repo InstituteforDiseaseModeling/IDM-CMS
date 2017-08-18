@@ -8,7 +8,7 @@ These methods can simulate a spatial model.
    :maxdepth: 7
    :titlesonly:
 
-   TransportSSA
-   OptimalTransportSSA
    DFSP
    FractionalDiffusion
+   OptimalTransportSSA
+   TransportSSA

@@ -23,13 +23,13 @@ sdwSSA employees state-dependent importance sampling using a set of parameters f
 ``gammaSize``
 	takes a positive integer as an input and defines the initial length of importance sampling parameters :emphasis:`per reaction`. 
 ``binCount``
-	takes a positive integer greater or equal to 10 as an input. It specifies the minimum number of data required to maintain a single bin (bins are merged otherwise until each bin contains at least :code:`binCount` data). :code:`binCount` is used only in multilevel cross entropy (CE) simulations and is not required for sdwSSA simulations. If :code:`binCount` is missing in the .json file but required to run multilevel CE simulations, default value of 20 is used.  
+	takes a positive integer greater or equal to 10 as an input. It specifies the minimum number of data required to maintain a single bin (bins are merged otherwise until each bin contains at least :code:`binCount` data). :code:`binCount` is used only in multilevel cross entropy (CE) simulations and is not required for sdwSSA simulations. If :code:`binCount` is missing in the .json file but required to run multilevel CE simulations, then a default value of 20 is used.  
 ``biasingParametersFileName``
 	takes a string as an input. It is the name of the .json file containing importance sampling (IS) parameters, which are used in the sdwSSA simulations. If :code:`biasingParametersFileName` is missing, default name is created in the form of :emphasis:`modelName`\_biasingParameters.json and multilevel CE simulations are performed to compute optimal IS parameters prior to running sdwSSA simulations. 
 ``crossEntropyRuns``
-	takes an integer greater or equal to 5000 as an input. It defines the number of trajectories simulated in each level of multilevel CE method. This parameter is used only in multilevel CE simulations and is not required for sdwSSA simulations. If :code:`crossEntropyRuns`  is missing in the .json file but required to run multilevel CE simulations, default value of 100,000 is used.  
+	takes an integer greater or equal to 5000 as an input. It defines the number of trajectories simulated in each level of multilevel CE method. This parameter is used only in multilevel CE simulations and is not required for sdwSSA simulations. If :code:`crossEntropyRuns`  is missing in the .json file but required to run multilevel CE simulations, then a default value of 100,000 is used.  
 ``crossEntropyThreshold`` 
-	takes a real value in (0, 1) as an input and defines the fraction of top performing trajectories chosen to compute an intermediate rare event. It is used only in multilevel CE simulations and not required for sdwSSA simulations. If :code:`crossEntropyThreshold` is missing in the .json file but required to run multilevel CE simulations, default value of 0.01 (1%) is used. 
+	takes a real value in (0, 1) as an input and defines the fraction of top performing trajectories chosen to compute an intermediate rare event. It is used only in multilevel CE simulations and not required for sdwSSA simulations. If :code:`crossEntropyThreshold` is missing in the .json file but required to run multilevel CE simulations, then a default value of 0.01 (1%) is used. 
 	.. note::
 
 		If slow convergence is detected during the multilevel CE simulations, the value of crossEntropyThreshold is decreased to 80% of its previous value. 

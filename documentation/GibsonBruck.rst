@@ -12,7 +12,7 @@ The Gibson-Bruck Next Reaction method [1]_ is an exact stochatic simulation algo
 **.json syntax for Gibson-Bruck Next Reaction Method**
 
 ``solver``
-	takes a string as an input. :code:`NEXT`, :code:`NEXTREACTION`, and :code:`GIBSONBRUCK` ARE the only valid names to run this solver.
+	takes a string as an input. :code:`Next`, :code:`NextReaction`, and :code:`GobsonBruck` are all valid names to run this solver.
 
 .. rubric:: Footnotes
 .. [1] `Gibson, B. and Bruck, J. "Efficient Exact Stochastic Simulation of Chemical Systems with Many Species and Many Channels." The Journal of Physical Chemistry A, 104 9 (2000): 1876-1889. <http://pubs.acs.org/doi/abs/10.1021/jp993732q>`_

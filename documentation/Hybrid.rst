@@ -13,9 +13,9 @@ An event queue SSA hybrid is an algorithm that combines a Gillespie Solver and a
 **.json syntax for Hybrid SSA**
 
 ``solver``
-	takes a string as an input. :code:`HYBRID` is the only valid name to run this solver.
+	takes a string as an input. :code:`Hybrid` is the only valid name to run this solver.
 ``method``
-	takes a string as an input. :code:`RejectionMethod` and :code:`ExactMethod` are the only valid names for methods in this solver.  The default for this field is :code:`RejectionMethod`.
+	takes a string as an input. :code:`RejectionMethod` and :code:`ExactMethod` are names of two methods offered by the Hybrid SSA. The default for this field is :code:`RejectionMethod`.
 
 .. rubric:: Footnotes
 .. [1] `Cai, X. "Exact stochastic simulation of coupled chemical reactions with delays." The Journal of Chemical Physics 126 (2007): 124108. <https://www.ncbi.nlm.nih.gov/pubmed/17411109>`_

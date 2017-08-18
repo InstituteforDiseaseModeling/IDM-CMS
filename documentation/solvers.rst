@@ -2,7 +2,7 @@
 Solvers
 ========
 
-The CMS software offers 16 different solvers. They can be categorized into the following categories.
+The CMS software offers 16 different solvers. They can be categorized into the following categories. Note all solver names are case insensitive in their corresponding .json file.
 
 .. toctree::
    :maxdepth: 7

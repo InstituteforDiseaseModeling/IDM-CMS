@@ -23,9 +23,9 @@ dwSSA requires a set of biasing parameters to reach the rare event of interest. 
 ``gammas``
 	takes a vector of positive real numbers as an input. The length of :code:`gammas` is equal to the total number of reactions in the model. They are used as importance sampling parameters in selecting the next reaction and the next time step, as well as in computing the likelihood ratio of a biased trajectory. If :code:`gammas` is missing in the .json file, multilevel cross entropy (CE) simulations are performed to compute optimal gamma values prior to dwSSA simulations. 
 ``crossEntropyRuns``
-	takes an integer greater or equal to 5000 as an input. It defines the number of trajectories simulated in each level of multilevel CE method. This parameter is used only in multilevel CE simulations and is not required for dwSSA simulations. If :code:`crossEntropyRuns`  is missing in the .json file but required to run multilevel CE simulations, default value of 100,000 is used.  
+	takes an integer greater or equal to 5000 as an input. It defines the number of trajectories simulated in each level of multilevel CE method. This parameter is used only in multilevel CE simulations and is not required for dwSSA simulations. If :code:`crossEntropyRuns` is missing in the .json file but required to run multilevel CE simulations, then a default value of 100,000 is used.  
 ``crossEntropyThreshold`` 
-	takes a real value in (0, 1) as an input and defines the fraction of top performing trajectories chosen to compute an intermediate rare event. It is used only in multilevel CE simulations and not required for dwSSA simulations. If :code:`crossEntropyThreshold` is missing in the .json file but required to run multilevel CE simulations, default value of 0.01 (1%) is used. 
+	takes a real value in (0, 1) as an input and defines the fraction of top performing trajectories chosen to compute an intermediate rare event. It is used only in multilevel CE simulations and not required for dwSSA simulations. If :code:`crossEntropyThreshold` is missing in the .json file but required to run multilevel CE simulations, then a default value of 0.01 (1%) is used. 
 	.. note::
 
 		If slow convergence is detected during the multilevel CE simulations, the value of crossEntropyThreshold is decreased to 80% of its previous value. 
