@@ -44,8 +44,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Compartmental Modeling (CMS)  documentation" href="index.html"/>
-        <link rel="next" title="How to use the software" href="howto-software.html"/>
-        <link rel="prev" title="Output files" href="output-files.html"/>
+        <link rel="next" title="CMS installation" href="cms-installation.html"/>
+        <link rel="prev" title="Compartmental Modeling Software (CMS)" href="index.html"/>
 
 <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans" rel="stylesheet">
 
@@ -100,9 +100,9 @@
             
             
               <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cms-installation.html">CMS installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction-software.html">Introduction to the software</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to compartmental modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howto-software.html">How to use the software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
@@ -170,7 +170,30 @@
 
   <div class="section" id="introduction-to-compartmental-modeling">
 <h1>Introduction to compartmental modeling<a class="headerlink" href="#introduction-to-compartmental-modeling" title="Permalink to this headline">¶</a></h1>
-<p>Introduction to modeling TBD.</p>
+<p>Compartmental modeling is widely used among epidemiologists to simulate disease dynamics. While deterministic compartmental models (ODEs and PDEs) are fast to simulate, there are many cases where stochastic modeling (<a class="reference external" href="https://en.wikipedia.org/wiki/Master_equation">CME</a>-based methods) is preferred. Stochastic framework provides <em>distributions</em> associated with characteristics of a process and rigorous procedures for inference. In addition, deterministic models do not provide an accurate description of the system when the population in any of the compartments is low. For example, consider the following simple SIR model.</p>
+<div class="math">
+<p><span class="math">\begin{aligned}
+S + I &amp; \stackrel{\beta}{\rightarrow} 2I,&amp;   \beta = 0.001 \\
+I &amp; \stackrel{\gamma}{\rightarrow}  R, &amp;     \gamma = 0.1 \\
+\end{aligned}
+\\
+\mathbf{x}_0 = [200 \: 1 \: 0]  \quad t_f = 150</span></p>
+</div><p>In the above system, we start with 200 susceptible individuals, 1 infectious and 0 recovered. Twenty stochastic trajectories are simulated using <a class="reference internal" href="Gillespie.html"><span class="doc">Gillespie’s stochastic simulation algorithm</span></a> (SSA) <a class="footnote-reference" href="#id2" id="id1">[1]</a> and its results are compared to that of <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html">ODE45</a>.</p>
+<a class="reference internal image-reference" href="_images/SIRS_ODEvSSA.jpg"><img alt="_images/SIRS_ODEvSSA.jpg" class="align-center" src="_images/SIRS_ODEvSSA.jpg" style="width: 50%;" /></a>
+<p>We can see that many of the SSA trajectories show no outbreak. This is due to having only one infectious individual in the initial state. Probability of the single infectious individual recovering in the next time step is <span class="math">1/3 \left(\frac{1 \times 0.1}{200 \times 1 \times 0.001+1 \times 0.1}\right)</span> while infecting one of 200 susceptible individual is <span class="math">2/3 \left(\frac{200 \times 1 \times 0.001}{200 \times 1 \times 0.001+1 \times 0.1}\right)</span>. At the same time, we also see SSA trajectories that contain earlier and larger outbreak (population of <span class="math">I</span>) compared to the trajectory of <span class="math">I</span> from deterministic simulation.</p>
+<p>With a large number of SSA trajectories, we can obtain an accurate distribution of states in time. For example, the distribution of recovered individuals <span class="math">R</span> at <span class="math">t = t_f(150)</span> using <span class="math">10^5</span> SSA trajectories looks like the following:</p>
+<a class="reference internal image-reference" href="_images/SIRS_tf_distrb_R.jpg"><img alt="_images/SIRS_tf_distrb_R.jpg" class="align-center" src="_images/SIRS_tf_distrb_R.jpg" style="width: 50%;" /></a>
+<p>Such distribution can be used to obtain many useful insights into the system. The first mode in the distribution (left peak) indicates that no large outbreak is observed almost half of the time by <span class="math">t=150</span>. The second mode indicates the type of population immunity that may be observed at <span class="math">t=150</span>. Looking at the same distribution in time can be used to study how the immunity changes over time.</p>
+<p>As the size of population increases, SSA trajectories start looking more similiar to the ODE result and exhibit less variability among themselves. When we change the initial population to <span class="math">x_0 = [2000 \: 100 \: 0]</span>, we get the following result.</p>
+<a class="reference internal image-reference" href="_images/SIRS_ODEvSSA_largePop.jpg"><img alt="_images/SIRS_ODEvSSA_largePop.jpg" class="align-center" src="_images/SIRS_ODEvSSA_largePop.jpg" style="width: 50%;" /></a>
+<p>We note that intrinsic stochasticity may differ greatly from one model to another, depending on many factors, such as reaction rates, number of non-linear reactions, connectivity among different compartments, and population size. When a system contains compartments with a relatively large population where stochastcitity still matters, we can use an <a class="reference internal" href="Approximate Methods.html"><span class="doc">approximate method</span></a> to speed up the simulation. Several popular <a class="reference internal" href="Spatial Simulation Methods.html"><span class="doc">spatial simulation methods</span></a> are also supported in CMS, along with rare event (<a class="reference internal" href="dwSSA.html"><span class="doc">dwSSA</span></a> and <a class="reference internal" href="sdwSSA.html"><span class="doc">sdwSSA</span></a>) and <a class="reference internal" href="ExitTimes.html"><span class="doc">exit time</span></a> simulation methods.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/j100540a008?journalCode=jpchax">Gillespie, Daniel T. “Exact stochastic simulation of coupled chemical reactions.” The Journal of Physical Chemistry 81.25 (1977): 2340-361.</a></td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -185,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="howto-software.html" class="btn btn-neutral float-right" title="How to use the software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cms-installation.html" class="btn btn-neutral float-right" title="CMS installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="output-files.html" class="btn btn-neutral" title="Output files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Compartmental Modeling Software (CMS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -249,21 +272,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-<!-- Google analytics for IDM docs -->
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87656833-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
+   
 
 </body>
 </html>
