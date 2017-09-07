@@ -85,7 +85,6 @@ namespace compartments.emod.expressions
 
         public override string OperatorName { get { return "/"; } }
     }
-/* NOT YET
     public class ModuloOperator : BinaryOp
     {
         public ModuloOperator(INumericOperator a, INumericOperator b) : base(a, b) { }
@@ -94,7 +93,7 @@ namespace compartments.emod.expressions
 
         public override string OperatorName { get { return "%"; } }
     }
-*/
+
     public class PowerOperator : BinaryOp
     {
         public PowerOperator(INumericOperator a, INumericOperator b) : base(a, b) { }

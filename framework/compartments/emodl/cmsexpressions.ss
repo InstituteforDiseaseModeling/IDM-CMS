@@ -86,7 +86,7 @@
         ((-)   (new-binary SubtractOperator (parse-expression (cadr expression)) (parse-expression (caddr expression))))
         ((*)   (new-binary MultiplyOperator (parse-expression (cadr expression)) (parse-expression (caddr expression))))
         ((/)   (new-binary DivideOperator   (parse-expression (cadr expression)) (parse-expression (caddr expression))))
-;        ((%)   (new-binary ModuloOperator   (parse-expression (cadr expression)) (parse-expression (caddr expression))))
+        ((%)   (new-binary ModuloOperator   (parse-expression (cadr expression)) (parse-expression (caddr expression))))
         ((^)   (new-binary PowerOperator    (parse-expression (cadr expression)) (parse-expression (caddr expression))))
         ((pow) (new-binary PowerOperator    (parse-expression (cadr expression)) (parse-expression (caddr expression))))
         ((min) (new-binary MinimumOperator  (parse-expression (cadr expression)) (parse-expression (caddr expression))))

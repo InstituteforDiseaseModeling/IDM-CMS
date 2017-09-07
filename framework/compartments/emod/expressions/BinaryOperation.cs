@@ -67,7 +67,17 @@ namespace compartments.emod.expressions
         }
     }
 
-    // Modulo
+    public class Modulo : BinaryOperation
+    {
+        public Modulo(IValue argA, IValue argB) : base(argA, argB)
+        {
+        }
+
+        public override float Value
+        {
+            get { return (float) ((int) ArgumentA.Value%(int) ArgumentB.Value); }
+        }
+    }
 
     public class Power : BinaryOperation
     {
