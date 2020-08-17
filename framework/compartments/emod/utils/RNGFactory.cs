@@ -19,7 +19,8 @@ namespace compartments.emod.utils
         public enum GeneratorType
         {
             VANILLA,
-            RANDLIB
+            RANDLIB,
+            MERSENNE
         }
         // ReSharper restore InconsistentNaming
 
@@ -39,8 +40,7 @@ namespace compartments.emod.utils
             // Look at the config, if there is one, to determine which generator
             // to use and what seed value.
 
-            // TODO: make MT be the default?
-            string defaultPrngType = "RANDLIB";
+            string defaultPrngType = "MERSENNE";
             string configPrngType  = Configuration.CurrentConfiguration.GetParameterWithDefault("RNG.type", defaultPrngType);
             _generatorType         = (GeneratorType)Enum.Parse(typeof(GeneratorType), configPrngType.ToUpper());
             _generatorSeed         = (uint)Configuration.CurrentConfiguration.GetParameterWithDefault("prng_seed", 0);
@@ -72,6 +72,10 @@ namespace compartments.emod.utils
 
                 case GeneratorType.RANDLIB:
                     prng = RandLibVariateGenerator.CreateRandLibVariateGenerator(new [] { generatorSeed });
+                    break;
+
+                case GeneratorType.MERSENNE:
+                    prng = MersenneTwisterVariateGenerator.CreateMersenneTwisterVariateGenerator(new[] { generatorSeed });
                     break;
 
                 default:
