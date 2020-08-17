@@ -49,13 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DistributionSampler.cs" />
-    <Compile Include="hidden\AesCounter.cs" />
-    <Compile Include="hidden\PseudoDes.cs" />
     <Compile Include="hidden\RandLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="randomvariates\AesCounterVariateGenerator.cs" />
     <Compile Include="randomvariates\DotNetVariateGenerator.cs" />
-    <Compile Include="randomvariates\PseudoDesVariateGenerator.cs" />
     <Compile Include="randomvariates\RandLibVariateGenerator.cs" />
     <Compile Include="samplers\RandLibSampler.cs" />
     <Compile Include="randomvariates\RandomVariateGenerator.cs" />

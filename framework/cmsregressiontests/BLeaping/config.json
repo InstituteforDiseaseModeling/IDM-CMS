@@ -6,7 +6,7 @@
 
     "prng_seed": 0,
     "RNG" : {
-        "type" : "PSEUDODES"
+        "type" : "RANDLIB"
     },
 
     "b-leaping" : {

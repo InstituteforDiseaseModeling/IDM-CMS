@@ -47,27 +47,6 @@ namespace cmsunittests
             Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
         }
 
-        [Test, Description("RNGFactory test - pseudoDES")]
-        public void RngFactoryPseudoDes()
-        {
-            const string prngText = "pseudoDES";
-            var prng = GetRngFromFactory(prngText);
-            Assert.True(prng is PseudoDesVariateGenerator);
-            Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
-        }
-
-        [Test, Description("RNGFactory test - AESCOUNTER")]
-        public void RngFactoryAesCounter()
-        {
-            if (!AesCounterVariateGenerator.IsSupported)
-                Assert.Ignore("CPU doesn't support AES instructions");
-
-            const string prngText = "AESCOUNTER";
-            var prng = GetRngFromFactory(prngText);
-            Assert.True(prng is AesCounterVariateGenerator);
-            Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
-        }
-
         private RandomVariateGenerator GetRngFromFactory(string prngText)
         {
             SetCurrentPrng(prngText);
@@ -96,27 +75,6 @@ namespace cmsunittests
         public void SirWithRandLibPrng()
         {
             const string prng = "RANDLIB";
-            var passed = ExecuteSirModel(prng);
-            Assert.True(passed);
-            Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
-        }
-
-        [Test, Description("SIR with PseudoDES PRNG")]
-        public void SirWithPseudoDesPrng()
-        {
-            const string prng = "PseudoDES";
-            var passed = ExecuteSirModel(prng);
-            Assert.True(passed);
-            Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
-        }
-
-        [Test, Description("SIR with AesCounter PRNG")]
-        public void SirWithAesCounterPrng()
-        {
-            if (!AesCounterVariateGenerator.IsSupported)
-                Assert.Ignore("CPU doesn't support AES instructions");
-
-            const string prng = "AesCounter";
             var passed = ExecuteSirModel(prng);
             Assert.True(passed);
             Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
@@ -202,14 +160,9 @@ namespace cmsunittests
             RandomVariateGenerator rng = RNGFactory.GetRNG();
 
             Console.WriteLine("Testing RNGFactory default value...");
-            if (AesCounterVariateGenerator.IsSupported)
-            {
-                Expect(rng is AesCounterVariateGenerator);
-            }
-            else
-            {
-                Expect(rng is PseudoDesVariateGenerator);
-            }
+            // TODO: when MT is implemented we probably want it to be the default?
+            Expect(rng is RandLibVariateGenerator);
+
             Console.WriteLine("{0}() PASSED", MethodBase.GetCurrentMethod().Name);
         }
 

@@ -19,9 +19,7 @@ namespace compartments.emod.utils
         public enum GeneratorType
         {
             VANILLA,
-            RANDLIB,
-            PSEUDODES,
-            AESCOUNTER
+            RANDLIB
         }
         // ReSharper restore InconsistentNaming
 
@@ -41,7 +39,8 @@ namespace compartments.emod.utils
             // Look at the config, if there is one, to determine which generator
             // to use and what seed value.
 
-            string defaultPrngType = (AesCounterVariateGenerator.IsSupported ? "AESCOUNTER" : "PSEUDODES");
+            // TODO: make MT be the default?
+            string defaultPrngType = "RANDLIB";
             string configPrngType  = Configuration.CurrentConfiguration.GetParameterWithDefault("RNG.type", defaultPrngType);
             _generatorType         = (GeneratorType)Enum.Parse(typeof(GeneratorType), configPrngType.ToUpper());
             _generatorSeed         = (uint)Configuration.CurrentConfiguration.GetParameterWithDefault("prng_seed", 0);
@@ -73,14 +72,6 @@ namespace compartments.emod.utils
 
                 case GeneratorType.RANDLIB:
                     prng = RandLibVariateGenerator.CreateRandLibVariateGenerator(new [] { generatorSeed });
-                    break;
-
-                case GeneratorType.PSEUDODES:
-                    prng = PseudoDesVariateGenerator.CreatePseudoDesVariateGenerator(new[] { generatorSeed, seedIndex });
-                    break;
-
-                case GeneratorType.AESCOUNTER:
-                    prng = AesCounterVariateGenerator.CreateAesCounterVariateGenerator(new [] { generatorSeed, seedIndex });
                     break;
 
                 default:

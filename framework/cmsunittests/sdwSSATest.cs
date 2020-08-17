@@ -268,7 +268,7 @@ namespace cmsunittests
         [Test]
         public void TestsdwSSAConstructorWithBiasingParameters()
         {
-            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}, ""sdwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":1000000, ""biasingParametersFileName"":""resources\\rever_isom_sdwSSA_CEinfo.json""}}";
+            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}, ""sdwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":1000000, ""biasingParametersFileName"":""resources\\rever_isom_sdwSSA_CEinfo.json""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -713,7 +713,7 @@ namespace cmsunittests
         [Test]
         public void TestRunCrossEntropy()
         {
-            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -759,7 +759,7 @@ namespace cmsunittests
         [Test]
         public void TestStepOnceWithWeight()
         {
-            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""},""sdwSSA"":{""biasingParametersFileName"":""resources\\rever_isom_CEinfo.json""}}";
+            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""},""sdwSSA"":{""biasingParametersFileName"":""resources\\rever_isom_CEinfo.json""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -802,7 +802,7 @@ namespace cmsunittests
         [Test]
         public void TestSolve()
         {
-            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""},""sdwSSA"":{""biasingParametersFileName"":""resources\\rever_isom_CEinfo.json""}}";
+            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""},""sdwSSA"":{""biasingParametersFileName"":""resources\\rever_isom_CEinfo.json""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -898,7 +898,7 @@ namespace cmsunittests
 
         private static sdwSSA InstantiateSolver()
         {
-            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""SDWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 

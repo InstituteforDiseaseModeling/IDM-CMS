@@ -27,7 +27,7 @@ namespace cmsunittests.solvers
         [Test]
         public void TauLeapingConstructorDefaultTest()
         {            
-            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
 
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
@@ -97,7 +97,7 @@ namespace cmsunittests.solvers
                                                                            out MethodInfo calculateProposedTauMethod, out MethodInfo resetModelStateMethod)
         {
             ////// /Setup the test /////////                      
-            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
             ModelInfo modelInfo = EmodlLoader.LoadEMODLFile("resources//testmodelTau.emodl");
@@ -281,7 +281,7 @@ namespace cmsunittests.solvers
         public void ExecuteReactionsTest()
         {
             //0.  Setup
-            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
             ModelInfo modelInfo = EmodlLoader.LoadEMODLFile("resources//testmodelTau.emodl");
@@ -622,7 +622,7 @@ namespace cmsunittests.solvers
         [Test]
         public void FireNonCriticalReactionsTest()
         {
-            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
             ModelInfo modelInfo = EmodlLoader.LoadEMODLFile("resources\\testmodelMidPoint.emodl");
@@ -819,7 +819,7 @@ namespace cmsunittests.solvers
         public void GillespieTauTest()
         {
             ////// /Setup the test /////////
-            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""Tau"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
             ModelInfo modelInfo = EmodlLoader.LoadEMODLFile("resources//testmodelTau.emodl");

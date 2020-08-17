@@ -426,7 +426,7 @@ namespace cmsunittests
         [Test]
         public void TestSelectAndFireReaction()
         {
-            const string configString = @"{""solver"":""DWSSA"", ""prng_seed"":123, ""prng_index"":1, ""RNG"":{""type"":""PSEUDODES""}, ""dwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":100000, ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[2.0, 0.5]}}";
+            const string configString = @"{""solver"":""DWSSA"", ""prng_seed"":123, ""prng_index"":1, ""RNG"":{""type"":""RANDLIB""}, ""dwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":100000, ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[2.0, 0.5]}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -517,7 +517,7 @@ namespace cmsunittests
         private static dwSSA StartStepOnce()
         {
             const string configString =
-                @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""},""dwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":100000, ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[2.0, 0.5]}}";
+                @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""},""dwSSA"":{""crossEntropyThreshold"":0.005, ""crossEntropyRuns"":100000, ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[2.0, 0.5]}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -573,7 +573,7 @@ namespace cmsunittests
         private static dwSSA SetupCrossEntropy()
         {
             const string configString =
-                @"{""solver"":""DWSSA"", ""prng_seed"":123, ""prng_index"":1, ""RNG"":{""type"":""PSEUDODES""}, ""dwSSA"":{""gamma"":[1, 1]}}";
+                @"{""solver"":""DWSSA"", ""prng_seed"":123, ""prng_index"":1, ""RNG"":{""type"":""RANDLIB""}, ""dwSSA"":{""gamma"":[1, 1]}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -622,7 +622,7 @@ namespace cmsunittests
         [Test]
         public void TestSolveOnce()
         {
-            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""},""dwSSA"":{""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[1, 1]}}";
+            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""},""dwSSA"":{""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[1, 1]}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -647,7 +647,7 @@ namespace cmsunittests
         [Test]
         public void TestSolve()
         {
-            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""},""dwSSA"":{ ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[1.3243964798992824, 0.73112035859010072 ]}}";
+            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""},""dwSSA"":{ ""reExpressionName"":""reExpression"", ""reValName"":""reVal"", ""gamma"":[1.3243964798992824, 0.73112035859010072 ]}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 
@@ -729,7 +729,7 @@ namespace cmsunittests
 
         private static dwSSA InstantiateSolver()
         {
-            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""DWSSA"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
             RunResetRNGFactory();
 

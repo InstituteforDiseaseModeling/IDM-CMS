@@ -199,7 +199,7 @@ namespace cmsunittests.solvers
         [Test]
         public void TestFireNonCriticalReactions()
         {
-            const string configString = @"{""solver"":""MID"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""PSEUDODES""}}";
+            const string configString = @"{""solver"":""MID"",""prng_seed"":123, ""prng_index"":1,""RNG"":{""type"":""RANDLIB""}}";
             Configuration.CurrentConfiguration = Configuration.ConfigurationFromString(configString);
 
             ModelInfo modelInfo = EmodlLoader.LoadEMODLFile("resources\\testmodelMidPoint.emodl");
