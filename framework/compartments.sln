@@ -1,19 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "compartments", "compartments\compartments.csproj", "{0F7FC5C3-FB17-456B-87C6-39F8991A7A81}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32} = {0E712D7D-7911-4DB1-B035-B2E1A57C6C32}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cmsunittests", "cmsunittests\cmsunittests.csproj", "{3DC28325-B59F-48DD-B4DC-8C7FC7D8E79D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32} = {0E712D7D-7911-4DB1-B035-B2E1A57C6C32}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrngLib", "AesCounterPrng\AesCounterPrng.vcxproj", "{0E712D7D-7911-4DB1-B035-B2E1A57C6C32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cmsregressiontests", "cmsregressiontests\cmsregressiontests.csproj", "{2173902F-9B89-45B0-B81A-664B6D285908}"
 EndProject
@@ -35,10 +27,6 @@ Global
 		{3DC28325-B59F-48DD-B4DC-8C7FC7D8E79D}.Debug|x64.Build.0 = Debug|x64
 		{3DC28325-B59F-48DD-B4DC-8C7FC7D8E79D}.Release|x64.ActiveCfg = Release|x64
 		{3DC28325-B59F-48DD-B4DC-8C7FC7D8E79D}.Release|x64.Build.0 = Release|x64
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32}.Debug|x64.ActiveCfg = Debug|x64
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32}.Debug|x64.Build.0 = Debug|x64
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32}.Release|x64.ActiveCfg = Release|x64
-		{0E712D7D-7911-4DB1-B035-B2E1A57C6C32}.Release|x64.Build.0 = Release|x64
 		{2173902F-9B89-45B0-B81A-664B6D285908}.Debug|x64.ActiveCfg = Debug|x64
 		{2173902F-9B89-45B0-B81A-664B6D285908}.Debug|x64.Build.0 = Debug|x64
 		{2173902F-9B89-45B0-B81A-664B6D285908}.Release|x64.ActiveCfg = Release|x64

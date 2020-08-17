@@ -121,10 +121,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\common\PrngLib.dll">
-      <Link>PrngLib.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="resources\infinitepropensity.emodl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
