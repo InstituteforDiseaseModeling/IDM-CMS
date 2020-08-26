@@ -52,7 +52,7 @@ def GetColors(count):
     return colors
 
 def PlotFile(fileName, overlays, plotAllTrajectories):
-    print "Plotting ", fileName
+    print(f"Plotting {fileName}")
 
     observables = LoadFile(fileName)
     colors      = GetColors(len(observables))
@@ -86,18 +86,18 @@ def PlotFile(fileName, overlays, plotAllTrajectories):
     pyplot.legend()
 
 def LoadFile(fileName):
-    csvReader = csv.reader(open(fileName, 'rb'))
+    csvReader = csv.reader(open(fileName, 'rt'))
     currentObservable = ''
     observables = {}
     data = []
     for row in csvReader:
-        if not 'FrameworkVersion' in row[0]:
+        if 'FrameworkVersion' not in row[0] and "sampletimes" not in row[0]:
             observable = row[0].partition('{')[0]
             if observable != currentObservable:
                 currentObservable = observable
                 data = []
                 observables[observable] = data
-            data.append(map(float, row[1:]))
+            data.append(list(map(float, row[1:])))
     return observables
 
 if __name__ == '__main__':
