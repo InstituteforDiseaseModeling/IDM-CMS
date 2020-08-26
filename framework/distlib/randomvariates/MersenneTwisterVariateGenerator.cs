@@ -59,7 +59,7 @@ namespace distlib.randomvariates
             long intMaxValue = (long)int.MaxValue;
             long range = intMaxValue - intMinValue + 1;
             random32 = random32 + (-1 * intMinValue);
-            return random32 / range;
+            return (double)random32 / range;
         }
 
     }
