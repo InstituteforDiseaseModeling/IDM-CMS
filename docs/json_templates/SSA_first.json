@@ -1,0 +1,14 @@
+{
+    "duration": 100,
+    "runs": 10000,
+    "solver": "First",
+    "prng_seed": 10,
+    "samples": 120,
+    "output": {
+        "prefix": "FirstReaction",
+        "writecsv": true,
+        "compress": false,
+        "writeMatFile": false,
+        "writeSampleTimes": false
+    }
+}

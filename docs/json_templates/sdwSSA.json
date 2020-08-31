@@ -1,0 +1,16 @@
+{
+    "duration": 70,
+    "runs": 100000,
+    "solver": "sdwSSA",
+    "sdwSSA": {
+        "reExpressionName": "reExpression",
+        "reValName": "SIR-RE-val",
+        "crossEntropyThreshold"  : 0.01,
+        "crossEntropyMinDataSize": 300,        
+        "crossEntropyRuns": 100000,    
+        "gammaSize": 20,
+        "binCount": 15,
+        "biasingParametersFileNate": "SIRS_biasingParameters_custom.json",
+        "outputFileNate": "SIR_sdwSSA_1e5.txt"
+    }
+} 

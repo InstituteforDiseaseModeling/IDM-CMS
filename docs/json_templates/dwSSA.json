@@ -1,0 +1,14 @@
+{
+    "duration": 10,
+    "runs": 1000000,
+    "solver": "dwSSA",
+    "dwSSA": {
+        "gamma": [1.53, 0.45],
+        "reValName": "reVal",
+        "reExpressionName": "reExpression",
+        "crossEntropyRuns": 100000,
+        "crossEntropyThreshold": 0.01,
+        "crossEntropyMinDataSize": 300,
+        "outputFileNate": "SIR_dwSSA_1e6.txt"
+    }
+} 

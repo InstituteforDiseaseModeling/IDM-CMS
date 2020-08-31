@@ -1,0 +1,17 @@
+{
+    "duration" : 1024,
+    "runs"   : 512,
+    "solver" : "otssa",
+    "dfsp" : {
+        "umax" : 120,
+        "verbose" : false
+    },
+    "otssa" : {
+        "verbose" : false
+    },
+    "tssa" : {
+        "epsilon" : 0.01,
+        "greensFunctionIterations" : 100,
+        "verbose" : false
+    } 
+} 

@@ -1,0 +1,8 @@
+{
+    "solver": "SSA",
+    "duration": 1000,
+    "runs": 3,
+    "RNG": { "type": "RANDLIB" },
+    "rng_seed" : 2017,
+    "rng_index" : 42
+}

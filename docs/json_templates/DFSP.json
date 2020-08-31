@@ -1,0 +1,9 @@
+{
+    "duration" : 1024,
+    "runs"   : 512,
+    "solver" : "DFSP",
+    "dfsp" : {
+        "umax" : 120,
+        "verbose" : false
+    }
+} 

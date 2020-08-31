@@ -1,0 +1,15 @@
+{
+    "runs": 1,
+    "duration": 365,
+    "samples": 100,
+    "solver": "SSA",
+    "output": {
+        "prefix": "test_trajectories",
+        "writecsv": false,
+        "writejson": true,
+        "compress": false,
+        "channeltitles": true,
+        "writematfile": false,
+        "newmatformat": false
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "solver"   : "SSA",
+    "runs"     :   100,
+    "duration" :   730,
+    "samples"  :   250
+}

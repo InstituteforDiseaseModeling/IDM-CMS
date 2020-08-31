@@ -1,0 +1,11 @@
+{
+    "duration" : 365,
+    "runs"   : 512,
+    "solver" : "TauLeaping",
+    "tau-leaping" : {
+        "epsilon" : 0.001,
+        "Nc" : 2,
+        "Multiple" : 10.0,
+        "SSARuns" : 100
+    }
+}

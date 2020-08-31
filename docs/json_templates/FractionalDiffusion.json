@@ -1,0 +1,12 @@
+{
+    "duration" : 10,
+    "runs"     : 1,
+    "samples"  : 100,
+    "solver"   : "FD",
+    "fd" : {
+        "alpha"    : 1.6,
+		    "constant" : 0.025,
+        "Dalpha"   : 1.0,
+        "verbose"  : true
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "duration" : 365,
+    "runs"   : 1000,
+    "solver" : "MidPoint",
+    "midpoint" : {
+        "epsilon" : 0.001,
+        "nc" : 2,
+        "multiple" : 10.0,
+        "SSAruns" : 100
+    } 
+} 

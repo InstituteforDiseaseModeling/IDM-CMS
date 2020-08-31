@@ -1,0 +1,10 @@
+{
+    "duration" : 365,
+    "runs"   : 512,
+    "solver" : "RLeapingFast",
+    "r-leaping" : {
+        "epsilon" : 0.01,
+        "sorting interval" : 365.0,
+        "verbose" : false
+    }
+} 

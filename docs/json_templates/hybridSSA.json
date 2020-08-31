@@ -1,0 +1,8 @@
+{
+    "duration" : 365,
+    "runs"   : 512,
+    "solver" : "Hybrid",
+    "hybrid" : {
+        "method" : "RejectionMethod"
+    } 
+} 

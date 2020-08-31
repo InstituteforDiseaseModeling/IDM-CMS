@@ -1,0 +1,10 @@
+{
+    "duration" : 1024,
+    "runs"   : 512,
+    "solver" : "issa",
+    "tssa" : {
+        "epsilon" : 0.01,
+        "greensFunctionIterations" : 100,
+        "verbose" : false
+    } 
+} 
