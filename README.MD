@@ -58,4 +58,4 @@ Here is a sample model file:
 ```
 You can find additional documentation here:
 
-https://institutefordiseasemodeling.github.io/Documentation/cms/index.html
+https://docs.idmod.org/projects/cms/en/latest/ 
