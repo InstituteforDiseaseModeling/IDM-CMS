@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Compartmental Modeling Software (CMS)'
-copyright = f'1999 - {datetime.today().year}, Bill & Melinda Gates Foundation. All rights reserved.'
+copyright = f'1999 - {datetime.today().year}, Bill & Melinda Gates Foundation. All rights reserved'
 author = u'Institute for Disease Modeling'
 
 # The version info for the project you're documenting, acts as replacement for
