@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'plantweb.directive',
     'sphinx_search.extension', # search across multiple docsets in domain
+     'sphinx.ext.viewcode', # link to view source code
 ]
 
 plantul = 'plantweb'
