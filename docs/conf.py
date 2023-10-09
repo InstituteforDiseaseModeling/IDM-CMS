@@ -34,7 +34,8 @@ from datetime import datetime
 extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.githubpages',
-    'plantweb.directive'
+    'plantweb.directive',
+    'sphinx_rtd_theme'
 ]
 
 plantul = 'plantweb'
@@ -168,12 +169,8 @@ html_favicon = "figures/favicon.ico"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_context = {
-    'css_files': [
-        '_static/theme_overrides.css'
-        ]
-}
+html_css_files = ['theme_overrides.css']
+html_js_files = ['tablecollapse.js']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
