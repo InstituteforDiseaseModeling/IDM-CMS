@@ -35,6 +35,7 @@ extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.githubpages',
     'plantweb.directive',
+    'sphinx_rtd_theme'
     'sphinx_search.extension', # search across multiple docsets in domain
     'sphinx.ext.viewcode', # link to view source code
     'myst_parser', # source files written in MD or RST
@@ -188,10 +189,9 @@ html_favicon = "figures/favicon.ico"
 # so a file named "default.css" will overwrite the builtin "default.css".
 
 html_static_path = ['_static']
-
 html_css_files = ['theme_overrides.css']
+html_js_files = ['tablecollapse.js']
 
-html_js_files = ['show_block_by_os.js'] 
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
