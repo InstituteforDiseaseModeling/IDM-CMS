@@ -16,9 +16,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+#sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
 from datetime import datetime
 
@@ -36,6 +36,26 @@ extensions = [
     'sphinx.ext.githubpages',
     'plantweb.directive',
     'sphinx_rtd_theme'
+    'sphinx_search.extension', # search across multiple docsets in domain
+    'sphinx.ext.viewcode', # link to view source code
+    'myst_parser', # source files written in MD or RST
+]
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
 ]
 
 plantul = 'plantweb'
@@ -46,8 +66,7 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
 
 # The encoding of source files.
 #
@@ -75,7 +94,7 @@ release = u'0.9 beta'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -168,9 +187,11 @@ html_favicon = "figures/favicon.ico"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
+
 html_static_path = ['_static']
 html_css_files = ['theme_overrides.css']
 html_js_files = ['tablecollapse.js']
+
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -252,6 +273,20 @@ html_show_sphinx = False
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Compartmental Modeling Software (CMS)'
 
+# -- RTD Sphinx search for searching across the entire domain, default child -------------
+
+if os.environ.get('READTHEDOCS') == 'True':
+
+    search_project_parent = "institute-for-disease-modeling-idm"
+    search_project = os.environ["READTHEDOCS_PROJECT"]
+    search_version = os.environ["READTHEDOCS_VERSION"]
+
+    rtd_sphinx_search_default_filter = f"subprojects:{search_project}/{search_version}"
+
+    rtd_sphinx_search_filters = {
+        "Search this project": f"project:{search_project}/{search_version}",
+        "Search all IDM docs": f"subprojects:{search_project_parent}/{search_version}",
+    }
 
 
 # -- Options for LaTeX output ---------------------------------------------
