@@ -181,9 +181,9 @@ html_sidebars = {
 html_logo = "figures/idm-logo-transparent.png"
 html_favicon = "figures/favicon.ico"
 html_static_path = ['_static']
-html_baseurl = "https://docs.idmod.org/projects/emodpy-measles/en/latest"
+html_baseurl = "https://docs.idmod.org/projects/IDM-CMS/en/latest"
 html_context = {
-    'rtd_url': 'https://docs.idmod.org/projects/emodpy-measles/en/latest',
+    'rtd_url': 'https://docs.idmod.org/projects/IDM-CMS/en/latest',
     "versions_dropdown": {
         "latest": "devel (latest)",
         "stable": "current (stable)",
