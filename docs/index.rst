@@ -11,7 +11,8 @@ simultaneous interactions of agents in an effort to recreate complex phenomena. 
 stochastic, but uses the compartmental modeling framework to run faster, simpler simulations.
 
 
-
+Contents
+--------
 
 .. toctree::
    :maxdepth: 3
