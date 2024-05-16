@@ -1,6 +1,6 @@
-====================
-|CMS_s| installation
-====================
+=======
+Install
+=======
 
 #. Download compartments.zip from the IDM-CMS repository on GitHub_.
 #. Unzip compartments.zip to your desired location.
