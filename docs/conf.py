@@ -35,9 +35,8 @@ extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.githubpages',
     'plantweb.directive',
-    'sphinx_search.extension', # search across multiple docsets in domain
     'sphinx.ext.viewcode', # link to view source code
-    'myst_parser', # source files written in MD or RST
+    'myst_parser' # source files written in MD or RST
 ]
 
 myst_enable_extensions = [
