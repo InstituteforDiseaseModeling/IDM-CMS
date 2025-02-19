@@ -35,9 +35,8 @@ extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.githubpages',
     'plantweb.directive',
-    'sphinx_search.extension', # search across multiple docsets in domain
     'sphinx.ext.viewcode', # link to view source code
-    'myst_parser', # source files written in MD or RST
+    'myst_parser' # source files written in MD or RST
 ]
 
 myst_enable_extensions = [
@@ -76,7 +75,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Compartmental Modeling Software (CMS)'
-copyright = f'1999 - {datetime.today().year}, Bill & Melinda Gates Foundation. All rights reserved'
+copyright = f'1999 - {datetime.today().year}, Gates Foundation. All rights reserved'
 author = u'Institute for Disease Modeling'
 
 # The version info for the project you're documenting, acts as replacement for
