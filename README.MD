@@ -1,5 +1,15 @@
 # IDM Compartmental Modeling Software
 
+Projects are provided as open source software under the MIT License for community use, research, and development.
+
+**Unless otherwise noted, these projects are no longer actively maintained or supported by IDM or the Gates Foundation.**
+
+Community contributions are welcome, and trusted collaborators may review and merge pull requests, but no guarantees are made regarding support, pull request review, security response, maintenance, or release timelines.
+
+For your convenience, the last build of the documentation is available here: [docs-idmod-org-cms-en-latest.zip](https://github.com/InstituteforDiseaseModeling/IDM-CMS/blob/main/docs-idmod-org-cms-en-latest.zip)
+
+## Overview
+
 This software has the following features:
 
  * Multiple solvers
@@ -56,6 +66,3 @@ Here is a sample model file:
 
 (end-model)
 ```
-You can find additional documentation here:
-
-https://docs.idmod.org/projects/cms/en/latest/ 
